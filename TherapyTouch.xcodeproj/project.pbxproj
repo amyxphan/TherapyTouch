@@ -1,0 +1,614 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		555422AD2C9FA42100E2E9B0 /* TherapyTouchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422AC2C9FA42100E2E9B0 /* TherapyTouchApp.swift */; };
+		555422AF2C9FA42100E2E9B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422AE2C9FA42100E2E9B0 /* ContentView.swift */; };
+		555422B12C9FA42300E2E9B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555422B02C9FA42300E2E9B0 /* Assets.xcassets */; };
+		555422B52C9FA42300E2E9B0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555422B42C9FA42300E2E9B0 /* Preview Assets.xcassets */; };
+		555422BF2C9FA42300E2E9B0 /* TherapyTouchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422BE2C9FA42300E2E9B0 /* TherapyTouchTests.swift */; };
+		555422C92C9FA42300E2E9B0 /* TherapyTouchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422C82C9FA42300E2E9B0 /* TherapyTouchUITests.swift */; };
+		555422CB2C9FA42300E2E9B0 /* TherapyTouchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422CA2C9FA42300E2E9B0 /* TherapyTouchUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		555422BB2C9FA42300E2E9B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 555422A12C9FA42100E2E9B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 555422A82C9FA42100E2E9B0;
+			remoteInfo = TherapyTouch;
+		};
+		555422C52C9FA42300E2E9B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 555422A12C9FA42100E2E9B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 555422A82C9FA42100E2E9B0;
+			remoteInfo = TherapyTouch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		555422A92C9FA42100E2E9B0 /* TherapyTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TherapyTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		555422AC2C9FA42100E2E9B0 /* TherapyTouchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapyTouchApp.swift; sourceTree = "<group>"; };
+		555422AE2C9FA42100E2E9B0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		555422B02C9FA42300E2E9B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		555422B22C9FA42300E2E9B0 /* TherapyTouch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TherapyTouch.entitlements; sourceTree = "<group>"; };
+		555422B42C9FA42300E2E9B0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		555422BA2C9FA42300E2E9B0 /* TherapyTouchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TherapyTouchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		555422BE2C9FA42300E2E9B0 /* TherapyTouchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapyTouchTests.swift; sourceTree = "<group>"; };
+		555422C42C9FA42300E2E9B0 /* TherapyTouchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TherapyTouchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		555422C82C9FA42300E2E9B0 /* TherapyTouchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapyTouchUITests.swift; sourceTree = "<group>"; };
+		555422CA2C9FA42300E2E9B0 /* TherapyTouchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapyTouchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		555422A62C9FA42100E2E9B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		555422B72C9FA42300E2E9B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		555422C12C9FA42300E2E9B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		555422A02C9FA42100E2E9B0 = {
+			isa = PBXGroup;
+			children = (
+				555422AB2C9FA42100E2E9B0 /* TherapyTouch */,
+				555422BD2C9FA42300E2E9B0 /* TherapyTouchTests */,
+				555422C72C9FA42300E2E9B0 /* TherapyTouchUITests */,
+				555422AA2C9FA42100E2E9B0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		555422AA2C9FA42100E2E9B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				555422A92C9FA42100E2E9B0 /* TherapyTouch.app */,
+				555422BA2C9FA42300E2E9B0 /* TherapyTouchTests.xctest */,
+				555422C42C9FA42300E2E9B0 /* TherapyTouchUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		555422AB2C9FA42100E2E9B0 /* TherapyTouch */ = {
+			isa = PBXGroup;
+			children = (
+				555422AC2C9FA42100E2E9B0 /* TherapyTouchApp.swift */,
+				555422AE2C9FA42100E2E9B0 /* ContentView.swift */,
+				555422B02C9FA42300E2E9B0 /* Assets.xcassets */,
+				555422B22C9FA42300E2E9B0 /* TherapyTouch.entitlements */,
+				555422B32C9FA42300E2E9B0 /* Preview Content */,
+			);
+			path = TherapyTouch;
+			sourceTree = "<group>";
+		};
+		555422B32C9FA42300E2E9B0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				555422B42C9FA42300E2E9B0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		555422BD2C9FA42300E2E9B0 /* TherapyTouchTests */ = {
+			isa = PBXGroup;
+			children = (
+				555422BE2C9FA42300E2E9B0 /* TherapyTouchTests.swift */,
+			);
+			path = TherapyTouchTests;
+			sourceTree = "<group>";
+		};
+		555422C72C9FA42300E2E9B0 /* TherapyTouchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				555422C82C9FA42300E2E9B0 /* TherapyTouchUITests.swift */,
+				555422CA2C9FA42300E2E9B0 /* TherapyTouchUITestsLaunchTests.swift */,
+			);
+			path = TherapyTouchUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		555422A82C9FA42100E2E9B0 /* TherapyTouch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 555422CE2C9FA42300E2E9B0 /* Build configuration list for PBXNativeTarget "TherapyTouch" */;
+			buildPhases = (
+				555422A52C9FA42100E2E9B0 /* Sources */,
+				555422A62C9FA42100E2E9B0 /* Frameworks */,
+				555422A72C9FA42100E2E9B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TherapyTouch;
+			productName = TherapyTouch;
+			productReference = 555422A92C9FA42100E2E9B0 /* TherapyTouch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		555422B92C9FA42300E2E9B0 /* TherapyTouchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 555422D12C9FA42300E2E9B0 /* Build configuration list for PBXNativeTarget "TherapyTouchTests" */;
+			buildPhases = (
+				555422B62C9FA42300E2E9B0 /* Sources */,
+				555422B72C9FA42300E2E9B0 /* Frameworks */,
+				555422B82C9FA42300E2E9B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				555422BC2C9FA42300E2E9B0 /* PBXTargetDependency */,
+			);
+			name = TherapyTouchTests;
+			productName = TherapyTouchTests;
+			productReference = 555422BA2C9FA42300E2E9B0 /* TherapyTouchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		555422C32C9FA42300E2E9B0 /* TherapyTouchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 555422D42C9FA42300E2E9B0 /* Build configuration list for PBXNativeTarget "TherapyTouchUITests" */;
+			buildPhases = (
+				555422C02C9FA42300E2E9B0 /* Sources */,
+				555422C12C9FA42300E2E9B0 /* Frameworks */,
+				555422C22C9FA42300E2E9B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				555422C62C9FA42300E2E9B0 /* PBXTargetDependency */,
+			);
+			name = TherapyTouchUITests;
+			productName = TherapyTouchUITests;
+			productReference = 555422C42C9FA42300E2E9B0 /* TherapyTouchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		555422A12C9FA42100E2E9B0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					555422A82C9FA42100E2E9B0 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					555422B92C9FA42300E2E9B0 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 555422A82C9FA42100E2E9B0;
+					};
+					555422C32C9FA42300E2E9B0 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 555422A82C9FA42100E2E9B0;
+					};
+				};
+			};
+			buildConfigurationList = 555422A42C9FA42100E2E9B0 /* Build configuration list for PBXProject "TherapyTouch" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 555422A02C9FA42100E2E9B0;
+			productRefGroup = 555422AA2C9FA42100E2E9B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				555422A82C9FA42100E2E9B0 /* TherapyTouch */,
+				555422B92C9FA42300E2E9B0 /* TherapyTouchTests */,
+				555422C32C9FA42300E2E9B0 /* TherapyTouchUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		555422A72C9FA42100E2E9B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				555422B52C9FA42300E2E9B0 /* Preview Assets.xcassets in Resources */,
+				555422B12C9FA42300E2E9B0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		555422B82C9FA42300E2E9B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		555422C22C9FA42300E2E9B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		555422A52C9FA42100E2E9B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				555422AF2C9FA42100E2E9B0 /* ContentView.swift in Sources */,
+				555422AD2C9FA42100E2E9B0 /* TherapyTouchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		555422B62C9FA42300E2E9B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				555422BF2C9FA42300E2E9B0 /* TherapyTouchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		555422C02C9FA42300E2E9B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				555422CB2C9FA42300E2E9B0 /* TherapyTouchUITestsLaunchTests.swift in Sources */,
+				555422C92C9FA42300E2E9B0 /* TherapyTouchUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		555422BC2C9FA42300E2E9B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 555422A82C9FA42100E2E9B0 /* TherapyTouch */;
+			targetProxy = 555422BB2C9FA42300E2E9B0 /* PBXContainerItemProxy */;
+		};
+		555422C62C9FA42300E2E9B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 555422A82C9FA42100E2E9B0 /* TherapyTouch */;
+			targetProxy = 555422C52C9FA42300E2E9B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		555422CC2C9FA42300E2E9B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		555422CD2C9FA42300E2E9B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		555422CF2C9FA42300E2E9B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TherapyTouch/TherapyTouch.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TherapyTouch/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amyintech.TherapyTouch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		555422D02C9FA42300E2E9B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TherapyTouch/TherapyTouch.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TherapyTouch/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amyintech.TherapyTouch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		555422D22C9FA42300E2E9B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amyintech.TherapyTouchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TherapyTouch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TherapyTouch";
+			};
+			name = Debug;
+		};
+		555422D32C9FA42300E2E9B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amyintech.TherapyTouchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TherapyTouch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TherapyTouch";
+			};
+			name = Release;
+		};
+		555422D52C9FA42300E2E9B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amyintech.TherapyTouchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TherapyTouch;
+			};
+			name = Debug;
+		};
+		555422D62C9FA42300E2E9B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amyintech.TherapyTouchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TherapyTouch;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		555422A42C9FA42100E2E9B0 /* Build configuration list for PBXProject "TherapyTouch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				555422CC2C9FA42300E2E9B0 /* Debug */,
+				555422CD2C9FA42300E2E9B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		555422CE2C9FA42300E2E9B0 /* Build configuration list for PBXNativeTarget "TherapyTouch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				555422CF2C9FA42300E2E9B0 /* Debug */,
+				555422D02C9FA42300E2E9B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		555422D12C9FA42300E2E9B0 /* Build configuration list for PBXNativeTarget "TherapyTouchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				555422D22C9FA42300E2E9B0 /* Debug */,
+				555422D32C9FA42300E2E9B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		555422D42C9FA42300E2E9B0 /* Build configuration list for PBXNativeTarget "TherapyTouchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				555422D52C9FA42300E2E9B0 /* Debug */,
+				555422D62C9FA42300E2E9B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 555422A12C9FA42100E2E9B0 /* Project object */;
+}
