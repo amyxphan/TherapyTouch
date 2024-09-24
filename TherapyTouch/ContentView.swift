@@ -4,8 +4,44 @@
 //
 //  Created by Amy Phan on 9/21/24.
 //
-
 import SwiftUI
+
+struct ContentView: View {
+    var body: some View {
+        ZStack {
+            Color(hex: "#B89D6A")
+                .edgesIgnoringSafeArea(.all)
+            TabView {
+                HomeView()
+                    .tabItem {
+                        Image(systemName: "house")
+                        Text("Home")
+                    }
+                ProductivityView()
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                        Text("Productivity")
+                    }
+                FocusView()
+                    .tabItem {
+                        Image(systemName: "bell")
+                        Text("Focus")
+                    }
+                LiveHelpView()
+                    .tabItem {
+                        Image(systemName: "gear")
+                        Text("Live Help")
+                    }
+            }
+        }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
 
 extension Color {
     init(hex: String) {
@@ -19,60 +55,4 @@ extension Color {
 
         self.init(red: red, green: green, blue: blue)
     }
-}
-
-struct ContentView: View {
-    var body: some View {
-        VStack(alignment: .center, spacing: 5) {
-            Text("Hello! [NAME]")
-                .font(.system(size: 28, weight: .bold))
-            Text("Here's a summary of your journey:")
-                .font(.system(size: 20, weight: .bold))
-        }
-        .padding(.bottom, 15)
-        .edgesIgnoringSafeArea(.top)
-        VStack(spacing: 8) { // Adjust the spacing between each HStack
-            HStack {
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("Quote of the day:")
-                        .font(.system(size: 18))
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(hex: "#F0DFBE"))
-                        .frame(height: 90)
-                }
-            }
-            
-            HStack {
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("Recent Activity:")
-                        .font(.system(size: 18))
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(hex: "#F0DFBE"))
-                        .frame(height: 90)
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(hex: "#F0DFBE"))
-                        .frame(height: 90)
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(hex: "#F0DFBE"))
-                        .frame(height: 90)
-                }
-            }
-            
-            HStack {
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("Milestones:")
-                        .font(.system(size: 18))
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(hex: "#F0DFBE"))
-                        .frame(height: 90)
-                }
-            }
-        }
-        .padding(.horizontal)
-    }
-    
-}
-
-#Preview {
-    ContentView()
 }

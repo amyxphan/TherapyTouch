@@ -14,6 +14,10 @@
 		555422BF2C9FA42300E2E9B0 /* TherapyTouchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422BE2C9FA42300E2E9B0 /* TherapyTouchTests.swift */; };
 		555422C92C9FA42300E2E9B0 /* TherapyTouchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422C82C9FA42300E2E9B0 /* TherapyTouchUITests.swift */; };
 		555422CB2C9FA42300E2E9B0 /* TherapyTouchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422CA2C9FA42300E2E9B0 /* TherapyTouchUITestsLaunchTests.swift */; };
+		555422DA2CA25AC900E2E9B0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422D92CA25AC900E2E9B0 /* HomeView.swift */; };
+		555422DC2CA25B5B00E2E9B0 /* ProductivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422DB2CA25B5A00E2E9B0 /* ProductivityView.swift */; };
+		555422DE2CA25B6800E2E9B0 /* FocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422DD2CA25B6800E2E9B0 /* FocusView.swift */; };
+		555422E02CA25B7500E2E9B0 /* LiveHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422DF2CA25B7500E2E9B0 /* LiveHelpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,10 @@
 		555422C42C9FA42300E2E9B0 /* TherapyTouchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TherapyTouchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		555422C82C9FA42300E2E9B0 /* TherapyTouchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapyTouchUITests.swift; sourceTree = "<group>"; };
 		555422CA2C9FA42300E2E9B0 /* TherapyTouchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapyTouchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		555422D92CA25AC900E2E9B0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		555422DB2CA25B5A00E2E9B0 /* ProductivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityView.swift; sourceTree = "<group>"; };
+		555422DD2CA25B6800E2E9B0 /* FocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusView.swift; sourceTree = "<group>"; };
+		555422DF2CA25B7500E2E9B0 /* LiveHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveHelpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,10 @@
 			children = (
 				555422AC2C9FA42100E2E9B0 /* TherapyTouchApp.swift */,
 				555422AE2C9FA42100E2E9B0 /* ContentView.swift */,
+				555422DB2CA25B5A00E2E9B0 /* ProductivityView.swift */,
+				555422DD2CA25B6800E2E9B0 /* FocusView.swift */,
+				555422DF2CA25B7500E2E9B0 /* LiveHelpView.swift */,
+				555422D92CA25AC900E2E9B0 /* HomeView.swift */,
 				555422B02C9FA42300E2E9B0 /* Assets.xcassets */,
 				555422B22C9FA42300E2E9B0 /* TherapyTouch.entitlements */,
 				555422B32C9FA42300E2E9B0 /* Preview Content */,
@@ -259,8 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				555422DA2CA25AC900E2E9B0 /* HomeView.swift in Sources */,
 				555422AF2C9FA42100E2E9B0 /* ContentView.swift in Sources */,
+				555422DC2CA25B5B00E2E9B0 /* ProductivityView.swift in Sources */,
+				555422E02CA25B7500E2E9B0 /* LiveHelpView.swift in Sources */,
 				555422AD2C9FA42100E2E9B0 /* TherapyTouchApp.swift in Sources */,
+				555422DE2CA25B6800E2E9B0 /* FocusView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
