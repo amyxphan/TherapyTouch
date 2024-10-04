@@ -10,9 +10,19 @@ struct LiveHelpView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
+                HStack {
+                    Spacer()
+                    Text("Let's Talk!")
+                        .font(.system(size: 28, weight: .bold))
+                        .padding(.top, 25)
+                        .padding(.bottom, 15)
+                    Spacer()
+                }
                 Text("Appointments:")
                     .font(.system(size: 22))
+                    .padding(.leading, 15)
                 HStack(alignment: .center) {
+                    Spacer()
                     Button(action: {
                         // Button action here
                     }, label: {
@@ -40,54 +50,58 @@ struct LiveHelpView: View {
                     .background(Color(hex: "#F0DFBE"))
                     .cornerRadius(5)
                     .buttonBorderShape(.roundedRectangle)
+                    Spacer()
                 }
                 .padding(.bottom, 5)
+
                 Text("Get live help:")
                     .font(.system(size: 22))
-                Button(action: {
-                    // Button action here
-                }, label: {
-                    Text("Therapist Name Card")
-                        .frame(maxWidth: 325)
-                        .padding(.vertical, 65)
-                        .padding(.horizontal)
-                        .foregroundColor(.black)
-                })
-                .background(Color(hex: "#F0DFBE"))
-                .cornerRadius(5)
-                .buttonBorderShape(.roundedRectangle)
-                .padding(.bottom, 5)
-                
-                Button(action: {
-                    // Button action here
-                }, label: {
-                    Text("Therapist Name Card")
-                        .frame(maxWidth: 325)
-                        .padding(.vertical, 65)
-                        .padding(.horizontal)
-                        .foregroundColor(.black)
-                })
-                .background(Color(hex: "#F0DFBE"))
-                .cornerRadius(5)
-                .buttonBorderShape(.roundedRectangle)
-                .padding(.bottom, 5)
-                
-                Button(action: {
-                    // Button action here
-                }, label: {
-                    Text("Therapist Name Card")
-                        .frame(maxWidth: 325)
-                        .padding(.vertical, 65)
-                        .padding(.horizontal)
-                        .foregroundColor(.black)
-                })
-                .background(Color(hex: "#F0DFBE"))
-                .cornerRadius(5)
-                .buttonBorderShape(.roundedRectangle)
-                .padding(.bottom, 5)
-
+                    .padding(.leading, 15)
+                VStack {
+                    Button(action: {
+                        // Button action here
+                    }, label: {
+                        Text("Therapist Name Card")
+                            .frame(maxWidth: 325)
+                            .padding(.vertical, 65)
+                            .padding(.horizontal)
+                            .foregroundColor(.black)
+                    })
+                    .background(Color(hex: "#F0DFBE"))
+                    .cornerRadius(5)
+                    .buttonBorderShape(.roundedRectangle)
+                    .padding(.bottom, 5)
+                    
+                    Button(action: {
+                        // Button action here
+                    }, label: {
+                        Text("Therapist Name Card")
+                            .frame(maxWidth: 325)
+                            .padding(.vertical, 65)
+                            .padding(.horizontal)
+                            .foregroundColor(.black)
+                    })
+                    .background(Color(hex: "#F0DFBE"))
+                    .cornerRadius(5)
+                    .buttonBorderShape(.roundedRectangle)
+                    .padding(.bottom, 5)
+                    
+                    Button(action: {
+                        // Button action here
+                    }, label: {
+                        Text("Therapist Name Card")
+                            .frame(maxWidth: 325)
+                            .padding(.vertical, 65)
+                            .padding(.horizontal)
+                            .foregroundColor(.black)
+                    })
+                    .background(Color(hex: "#F0DFBE"))
+                    .cornerRadius(5)
+                    .buttonBorderShape(.roundedRectangle)
+                    .padding(.bottom, 5)
+                }
+                .frame(maxWidth: .infinity)
             }
-            .navigationTitle("Let's Talk!")
         }
     }
 }

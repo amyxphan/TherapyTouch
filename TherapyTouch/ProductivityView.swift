@@ -9,8 +9,19 @@ import SwiftUI
 struct ProductivityView: View {
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .center) {
+                Text("Productivity")
+                    .font(.system(size: 28, weight: .bold))
                 // need to make a functional add button to add more personalized goals
+                Button(action: {
+                    // Button action here
+                }, label: {
+                    Text("+")
+                        .frame(maxWidth: 325)
+                        .padding(.vertical, 25)
+                        .padding(.horizontal)
+                        .foregroundColor(.black)
+                })
                 Button(action: {
                     // Button action here
                 }, label: {
@@ -110,8 +121,6 @@ struct ProductivityView: View {
                 .padding(.bottom, 5)
                 
             }
-            //edit title to be centered & uniform with home page
-        .navigationTitle("Productivity")
         }
     }
 }

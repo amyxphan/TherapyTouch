@@ -8,9 +8,13 @@ import SwiftUI
 
 struct FocusView: View {
     var body: some View {
-        NavigationView {
+        VStack {
             Text("Focus")
-                .navigationTitle("Focus")
+                .font(.system(size: 28, weight: .bold))
+                .padding(.top, 45)
+            Spacer()
+            Text("Focus Page")
+            Spacer()
         }
     }
 }
