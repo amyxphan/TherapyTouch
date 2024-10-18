@@ -13,6 +13,7 @@ struct ProductivityView: View {
                 VStack(alignment: .center) {
                     Text("Productivity")
                         .font(.system(size: 28, weight: .bold))
+                        .padding(.vertical, 45)
                     // need to make a functional add button to add more personalized goals
                     Button(action: {
                         // Button action here
@@ -35,85 +36,73 @@ struct ProductivityView: View {
                     .buttonBorderShape(.roundedRectangle)
                     .padding(.bottom, 5)
                     
-                    Button(action: {
-                        // Button action here
-                    }, label: {
+                    NavigationLink(destination: ProductivityMoodView()) {
                         Text("Mood")
                             .frame(maxWidth: 325)
                             .padding(.vertical, 18)
                             .padding(.horizontal)
                             .foregroundColor(.black)
-                    })
+                    }
                     .background(Color(hex: "#F0DFBE"))
                     .cornerRadius(5)
                     .buttonBorderShape(.roundedRectangle)
                     .padding(.bottom, 5)
                     
-                    Button(action: {
-                        // Button action here
-                    }, label: {
+                    NavigationLink(destination: ProductivityWeatherView()) {
                         Text("Weather")
                             .frame(maxWidth: 325)
                             .padding(.vertical, 18)
                             .padding(.horizontal)
                             .foregroundColor(.black)
-                    })
+                    }
                     .background(Color(hex: "#F0DFBE"))
                     .cornerRadius(5)
                     .buttonBorderShape(.roundedRectangle)
                     .padding(.bottom, 5)
                     
-                    Button(action: {
-                        // Button action here
-                    }, label: {
+                    NavigationLink(destination: ProductivitySleepView()) {
                         Text("Sleep")
                             .frame(maxWidth: 325)
                             .padding(.vertical, 18)
                             .padding(.horizontal)
                             .foregroundColor(.black)
-                    })
+                    }
                     .background(Color(hex: "#F0DFBE"))
                     .cornerRadius(5)
                     .buttonBorderShape(.roundedRectangle)
                     .padding(.bottom, 5)
                     
-                    Button(action: {
-                        // Button action here
-                    }, label: {
+                    NavigationLink(destination: ProductivityWorkoutView()) {
                         Text("Workout")
                             .frame(maxWidth: 325)
                             .padding(.vertical, 18)
                             .padding(.horizontal)
                             .foregroundColor(.black)
-                    })
+                    }
                     .background(Color(hex: "#F0DFBE"))
                     .cornerRadius(5)
                     .buttonBorderShape(.roundedRectangle)
                     .padding(.bottom, 5)
                     
-                    Button(action: {
-                        // Button action here
-                    }, label: {
+                    NavigationLink(destination: ProductivityNoSpendView()) {
                         Text("No Spend")
                             .frame(maxWidth: 325)
                             .padding(.vertical, 18)
                             .padding(.horizontal)
                             .foregroundColor(.black)
-                    })
+                    }
                     .background(Color(hex: "#F0DFBE"))
                     .cornerRadius(5)
                     .buttonBorderShape(.roundedRectangle)
                     .padding(.bottom, 5)
                     
-                    Button(action: {
-                        // Button action here
-                    }, label: {
+                    NavigationLink(destination: ProductivitySupplementView()) {
                         Text("Supplements")
                             .frame(maxWidth: 325)
                             .padding(.vertical, 18)
                             .padding(.horizontal)
                             .foregroundColor(.black)
-                    })
+                    }
                     .background(Color(hex: "#F0DFBE"))
                     .cornerRadius(5)
                     .buttonBorderShape(.roundedRectangle)

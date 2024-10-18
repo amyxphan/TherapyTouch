@@ -11,11 +11,11 @@ struct ProductivityWorkoutView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Water")
+                Text("Workout")
                     .font(.system(size: 28, weight: .bold))
                     .padding(.top, 45)
                 Spacer()
-                Text("Water Page")
+                Text("Workout Page")
                 Spacer()
             }
         }

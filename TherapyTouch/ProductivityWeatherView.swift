@@ -11,11 +11,11 @@ struct ProductivityWeatherView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Water")
+                Text("Weather")
                     .font(.system(size: 28, weight: .bold))
                     .padding(.top, 45)
                 Spacer()
-                Text("Water Page")
+                Text("Weather Page")
                 Spacer()
             }
         }

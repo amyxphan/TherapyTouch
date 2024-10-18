@@ -11,11 +11,11 @@ struct ProductivityMoodView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Water")
+                Text("Mood")
                     .font(.system(size: 28, weight: .bold))
                     .padding(.top, 45)
                 Spacer()
-                Text("Water Page")
+                Text("Mood Page")
                 Spacer()
             }
         }

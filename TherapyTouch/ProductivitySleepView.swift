@@ -11,11 +11,11 @@ struct ProductivitySleepView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Water")
+                Text("Sleep")
                     .font(.system(size: 28, weight: .bold))
                     .padding(.top, 45)
                 Spacer()
-                Text("Water Page")
+                Text("Sleep Page")
                 Spacer()
             }
         }
