@@ -90,6 +90,20 @@ struct LiveHelpView: View {
                         Button(action: {
                             // Button action here
                         }, label: {
+                                   Text("Therapist Name Card")
+                                       .frame(maxWidth: 325)
+                                       .padding(.vertical, 65)
+                                       .padding(.horizontal)
+                                       .foregroundColor(.black)
+                               })
+                               .background(Color(hex: "#F0DFBE"))
+                               .cornerRadius(5)
+                               .buttonBorderShape(.roundedRectangle)
+                               .padding(.bottom, 5)
+                               
+                               Button(action: {
+                                   // Button action here
+                               },label: {
                             Text("Therapist Name Card")
                                 .frame(maxWidth: 325)
                                 .padding(.vertical, 65)

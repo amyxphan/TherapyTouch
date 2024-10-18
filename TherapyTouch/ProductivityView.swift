@@ -23,15 +23,13 @@ struct ProductivityView: View {
                             .padding(.horizontal)
                             .foregroundColor(.black)
                     })
-                    Button(action: {
-                        // Button action here
-                    }, label: {
+                    NavigationLink(destination: ProductivityWaterView()) {
                         Text("Water")
                             .frame(maxWidth: 325)
                             .padding(.vertical, 18)
                             .padding(.horizontal)
                             .foregroundColor(.black)
-                    })
+                    }
                     .background(Color(hex: "#F0DFBE"))
                     .cornerRadius(5)
                     .buttonBorderShape(.roundedRectangle)

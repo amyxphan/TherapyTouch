@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		552653362CC1FE78003610B3 /* ProductivityWaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552653352CC1FE78003610B3 /* ProductivityWaterView.swift */; };
+		552653382CC1FECC003610B3 /* ProductivityMoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552653372CC1FECC003610B3 /* ProductivityMoodView.swift */; };
+		5526533A2CC1FEE3003610B3 /* ProductivityWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552653392CC1FEE3003610B3 /* ProductivityWeatherView.swift */; };
+		5526533C2CC1FEF6003610B3 /* ProductivitySleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5526533B2CC1FEF6003610B3 /* ProductivitySleepView.swift */; };
+		5526533E2CC1FF05003610B3 /* ProductivityWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5526533D2CC1FF05003610B3 /* ProductivityWorkoutView.swift */; };
+		552653402CC1FF21003610B3 /* ProductivityNoSpendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5526533F2CC1FF21003610B3 /* ProductivityNoSpendView.swift */; };
+		552653422CC1FF3B003610B3 /* ProductivitySupplementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552653412CC1FF3B003610B3 /* ProductivitySupplementView.swift */; };
 		555422AD2C9FA42100E2E9B0 /* TherapyTouchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422AC2C9FA42100E2E9B0 /* TherapyTouchApp.swift */; };
 		555422AF2C9FA42100E2E9B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422AE2C9FA42100E2E9B0 /* ContentView.swift */; };
 		555422B12C9FA42300E2E9B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555422B02C9FA42300E2E9B0 /* Assets.xcassets */; };
@@ -39,6 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		552653352CC1FE78003610B3 /* ProductivityWaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityWaterView.swift; sourceTree = "<group>"; };
+		552653372CC1FECC003610B3 /* ProductivityMoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityMoodView.swift; sourceTree = "<group>"; };
+		552653392CC1FEE3003610B3 /* ProductivityWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityWeatherView.swift; sourceTree = "<group>"; };
+		5526533B2CC1FEF6003610B3 /* ProductivitySleepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivitySleepView.swift; sourceTree = "<group>"; };
+		5526533D2CC1FF05003610B3 /* ProductivityWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityWorkoutView.swift; sourceTree = "<group>"; };
+		5526533F2CC1FF21003610B3 /* ProductivityNoSpendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityNoSpendView.swift; sourceTree = "<group>"; };
+		552653412CC1FF3B003610B3 /* ProductivitySupplementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivitySupplementView.swift; sourceTree = "<group>"; };
 		555422A92C9FA42100E2E9B0 /* TherapyTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TherapyTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555422AC2C9FA42100E2E9B0 /* TherapyTouchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapyTouchApp.swift; sourceTree = "<group>"; };
 		555422AE2C9FA42100E2E9B0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +123,13 @@
 				555422AE2C9FA42100E2E9B0 /* ContentView.swift */,
 				5584FAD62CA2623500081220 /* README.md */,
 				555422DB2CA25B5A00E2E9B0 /* ProductivityView.swift */,
+				552653412CC1FF3B003610B3 /* ProductivitySupplementView.swift */,
+				5526533F2CC1FF21003610B3 /* ProductivityNoSpendView.swift */,
+				5526533B2CC1FEF6003610B3 /* ProductivitySleepView.swift */,
+				5526533D2CC1FF05003610B3 /* ProductivityWorkoutView.swift */,
+				552653392CC1FEE3003610B3 /* ProductivityWeatherView.swift */,
+				552653372CC1FECC003610B3 /* ProductivityMoodView.swift */,
+				552653352CC1FE78003610B3 /* ProductivityWaterView.swift */,
 				555422DD2CA25B6800E2E9B0 /* FocusView.swift */,
 				555422DF2CA25B7500E2E9B0 /* LiveHelpView.swift */,
 				555422D92CA25AC900E2E9B0 /* HomeView.swift */,
@@ -277,10 +298,17 @@
 			files = (
 				555422DA2CA25AC900E2E9B0 /* HomeView.swift in Sources */,
 				555422AF2C9FA42100E2E9B0 /* ContentView.swift in Sources */,
+				5526533C2CC1FEF6003610B3 /* ProductivitySleepView.swift in Sources */,
 				555422DC2CA25B5B00E2E9B0 /* ProductivityView.swift in Sources */,
+				552653402CC1FF21003610B3 /* ProductivityNoSpendView.swift in Sources */,
 				555422E02CA25B7500E2E9B0 /* LiveHelpView.swift in Sources */,
 				555422AD2C9FA42100E2E9B0 /* TherapyTouchApp.swift in Sources */,
+				552653422CC1FF3B003610B3 /* ProductivitySupplementView.swift in Sources */,
+				552653382CC1FECC003610B3 /* ProductivityMoodView.swift in Sources */,
+				5526533A2CC1FEE3003610B3 /* ProductivityWeatherView.swift in Sources */,
 				555422DE2CA25B6800E2E9B0 /* FocusView.swift in Sources */,
+				552653362CC1FE78003610B3 /* ProductivityWaterView.swift in Sources */,
+				5526533E2CC1FF05003610B3 /* ProductivityWorkoutView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
