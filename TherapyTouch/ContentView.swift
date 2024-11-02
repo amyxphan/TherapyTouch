@@ -19,17 +19,17 @@ struct ContentView: View {
                     }
                 ProductivityView()
                     .tabItem {
-                        Image(systemName: "magnifyingglass")
+                        Image(systemName: "person")
                         Text("Productivity")
                     }
                 FocusView()
                     .tabItem {
-                        Image(systemName: "bell")
+                        Image(systemName: "timer")
                         Text("Focus")
                     }
                 LiveHelpView()
                     .tabItem {
-                        Image(systemName: "gear")
+                        Image(systemName: "phone")
                         Text("Live Help")
                     }
             }

@@ -14,16 +14,13 @@ struct ProductivityView: View {
                     Text("Productivity")
                         .font(.system(size: 28, weight: .bold))
                         .padding(.vertical, 45)
-                    // need to make a functional add button to add more personalized goals
-                    Button(action: {
-                        // Button action here
-                    }, label: {
+                    NavigationLink(destination: ProductivityNewView()) {
                         Text("+")
+                            .font(.system(size: 22, weight: .bold))
                             .frame(maxWidth: 325)
-                            .padding(.vertical, 25)
-                            .padding(.horizontal)
-                            .foregroundColor(.black)
-                    })
+                            .padding(.leading, 325)
+                            .foregroundColor(Color(hex: "#B89D6A"))
+                    }
                     NavigationLink(destination: ProductivityWaterView()) {
                         Text("Water")
                             .frame(maxWidth: 325)
