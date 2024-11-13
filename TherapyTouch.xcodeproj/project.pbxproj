@@ -30,6 +30,7 @@
 		5572B1D22CDF1EBC009589FE /* MilestonesNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1D12CDF1EBC009589FE /* MilestonesNewView.swift */; };
 		5572B1D42CE2AEC3009589FE /* TherapistNewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1D32CE2AEC3009589FE /* TherapistNewCard.swift */; };
 		5572B1D62CE30973009589FE /* HomeRecentActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1D52CE30973009589FE /* HomeRecentActivity.swift */; };
+		5572B1D82CE56FDA009589FE /* HomeMilestonesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1D72CE56FDA009589FE /* HomeMilestonesCard.swift */; };
 		5584FAD72CA2623500081220 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5584FAD62CA2623500081220 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		5572B1D12CDF1EBC009589FE /* MilestonesNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestonesNewView.swift; sourceTree = "<group>"; };
 		5572B1D32CE2AEC3009589FE /* TherapistNewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapistNewCard.swift; sourceTree = "<group>"; };
 		5572B1D52CE30973009589FE /* HomeRecentActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecentActivity.swift; sourceTree = "<group>"; };
+		5572B1D72CE56FDA009589FE /* HomeMilestonesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMilestonesCard.swift; sourceTree = "<group>"; };
 		5584FAD62CA2623500081220 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 				555422DD2CA25B6800E2E9B0 /* FocusView.swift */,
 				555422DF2CA25B7500E2E9B0 /* LiveHelpView.swift */,
 				555422D92CA25AC900E2E9B0 /* HomeView.swift */,
+				5572B1D72CE56FDA009589FE /* HomeMilestonesCard.swift */,
 				5572B1D52CE30973009589FE /* HomeRecentActivity.swift */,
 				5572B1D12CDF1EBC009589FE /* MilestonesNewView.swift */,
 				555422B02C9FA42300E2E9B0 /* Assets.xcassets */,
@@ -313,6 +316,7 @@
 			files = (
 				555422DA2CA25AC900E2E9B0 /* HomeView.swift in Sources */,
 				5572B1D02CDF177C009589FE /* QuoteGenerator.swift in Sources */,
+				5572B1D82CE56FDA009589FE /* HomeMilestonesCard.swift in Sources */,
 				5572B1D42CE2AEC3009589FE /* TherapistNewCard.swift in Sources */,
 				555422AF2C9FA42100E2E9B0 /* ContentView.swift in Sources */,
 				5572B1D62CE30973009589FE /* HomeRecentActivity.swift in Sources */,

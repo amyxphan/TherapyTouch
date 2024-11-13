@@ -83,8 +83,7 @@ struct HomeView: View {
                             }
                         }
                         
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color(hex: "#F0DFBE"))
+                        HomeMilestonesCard(category: "Sobriety", data: "100 days")
                             .frame(height: 90)
                     }
                 }

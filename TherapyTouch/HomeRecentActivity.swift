@@ -16,7 +16,7 @@ struct HomeRecentActivity: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(category)
-                    .font(.system(size: 18, weight: .bold))
+                    .font(.system(size: 18))
                     .padding(.leading, 8)
                     .padding(.bottom, 2)
                     .foregroundColor(.black)
