@@ -50,9 +50,7 @@ struct HomeView: View {
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Recent Activity:")
                             .font(.system(size: 18))
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color(hex: "#F0DFBE"))
-                            .frame(height: 90)
+                        HomeRecentActivity(category: "Weather", submition: 12, data: "Cloudy")
                         RoundedRectangle(cornerRadius: 10)
                             .fill(Color(hex: "#F0DFBE"))
                             .frame(height: 90)
