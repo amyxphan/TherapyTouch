@@ -22,10 +22,27 @@ struct ProductivityWaterView: View {
                     .font(.system(size: 20))
                     .padding(.top, 10)
                 
+                Text("Current Goal: [User Input]")
+                    .padding(.top, 10)
+                    .font(.system(size: 20))
+                    .foregroundColor(.black)
+                
+                NavigationLink(destination: ProductivityWaterView()) {
+                    Text("Add/Update Goal")
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 10)
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.black)
+                }
+
+                .background(Color(hex: "#B89D6A"))
+                .cornerRadius(5)
+                .buttonBorderShape(.roundedRectangle)
+                
                 Image("Water\(currentImageIndex)")
                     .resizable()
-                    .frame(width: 350, height: 450)
-                    .padding(.top, 70)
+                    .frame(width: 225, height: 325)
+                    .padding(.top, 50)
                     .onTapGesture {
                         if currentImageIndex > 1 {
                             currentImageIndex -= 1
@@ -38,7 +55,7 @@ struct ProductivityWaterView: View {
                 
                 Text("XX [unit of water intake]")
                     .font(.system(size: 25, weight: .bold))
-                    .padding(.top, 10)
+                    .padding(.top, 40)
             }
         }
     }
