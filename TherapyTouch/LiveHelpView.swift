@@ -13,11 +13,19 @@ struct LiveHelpView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Spacer()
-                        Text("Let's Talk!")
-                            .font(.system(size: 28, weight: .bold))
-                            .padding(.top, 25)
-                            .padding(.bottom, 15)
-                        Spacer()
+                        ZStack(alignment: .bottomTrailing) {
+                            Text("Let's Talk!")
+                                .font(.system(size: 28, weight: .bold))
+                                .padding(.top, 25)
+                                .padding(.bottom, 15)
+                                .padding(.trailing, 125)
+                            Image("TTLogo1")
+                                .resizable()
+                                .frame(width: 75, height: 75)
+                                .padding(.bottom, -20)
+                                .padding(.trailing, 70)
+                            Spacer()
+                        }
                     }
                     Text("Appointments:")
                         .font(.system(size: 22))

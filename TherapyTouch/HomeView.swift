@@ -13,10 +13,19 @@ struct HomeView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .center, spacing: 5) {
-                    Text("Hello! [NAME]")
-                        .font(.system(size: 28, weight: .bold))
-                        .padding(.top, 45)
-                    
+                    ZStack(alignment: .bottomTrailing) {
+                            Text("Hello! [NAME]")
+                                .font(.system(size: 28, weight: .bold))
+                                .padding(.top, 40)
+                                .padding()
+                            
+                            Image("TTLogo1")
+                                .resizable()
+                                .frame(width: 75, height: 75)
+                                .padding(.bottom, -20)
+                                .padding(.trailing, -35)
+                    }
+                
                     Text("Here's a summary of your journey:")
                         .font(.system(size: 20, weight: .bold))
                         .padding(.bottom, 8)

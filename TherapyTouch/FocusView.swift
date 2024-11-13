@@ -13,9 +13,19 @@ struct FocusView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Focus")
-                    .font(.system(size: 28, weight: .bold))
-                    .padding(.top, 45)
+                ZStack(alignment: .bottomTrailing) {
+                        Text("Focus")
+                            .font(.system(size: 28, weight: .bold))
+                            .padding(.top, 20)
+                            .padding()
+                        
+                        Image("TTLogo1")
+                            .resizable()
+                            .frame(width: 75, height: 75)
+                            .padding(.bottom, -20)
+                            .padding(.trailing, -40)
+                }
+                
                 
                 Spacer()
                 

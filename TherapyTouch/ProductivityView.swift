@@ -11,9 +11,18 @@ struct ProductivityView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .center) {
-                    Text("Productivity")
-                        .font(.system(size: 28, weight: .bold))
-                        .padding(.vertical, 45)
+                    ZStack(alignment: .bottomTrailing) {
+                            Text("Productivity")
+                                .font(.system(size: 28, weight: .bold))
+                                .padding(.top, 40)
+                                .padding()
+                            
+                            Image("TTLogo1")
+                                .resizable()
+                                .frame(width: 75, height: 75)
+                                .padding(.bottom, -20)
+                                .padding(.trailing, -35)
+                    }
                     NavigationLink(destination: ProductivityNewView()) {
                         Text("+")
                             .font(.system(size: 22, weight: .bold))
