@@ -18,6 +18,7 @@ struct HomeRecentActivity: View {
                 Text(category)
                     .font(.system(size: 18, weight: .bold))
                     .padding(.leading, 8)
+                    .padding(.bottom, 2)
                     .foregroundColor(.black)
                 
                 Text("submitted at \(submition)")
@@ -34,7 +35,7 @@ struct HomeRecentActivity: View {
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.black)
             }
-            .frame(maxHeight: 60)
+            .frame(maxHeight: 90)
             .padding(.trailing, 8)
         }
         .frame(maxWidth: 375, alignment: .leading)
