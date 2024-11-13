@@ -16,7 +16,7 @@ struct HomeView: View {
                     ZStack(alignment: .bottomTrailing) {
                             Text("Hello! [NAME]")
                                 .font(.system(size: 28, weight: .bold))
-                                .padding(.top, 40)
+                                .padding(.top, 10)
                                 .padding()
                             
                             Image("TTLogo1")
