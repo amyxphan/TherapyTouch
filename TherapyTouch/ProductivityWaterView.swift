@@ -16,7 +16,7 @@ struct ProductivityWaterView: View {
             VStack {
                 Text("Water")
                     .font(.system(size: 28, weight: .bold))
-                    .padding(.top, 45)
+                    .padding(.top, 20)
                 
                 Text("Let's view our progress today:")
                     .font(.system(size: 20))
