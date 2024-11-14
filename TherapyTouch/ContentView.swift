@@ -9,8 +9,6 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            Color(hex: "#B89D6A")
-                .edgesIgnoringSafeArea(.all)
             TabView {
                 HomeView()
                     .tabItem {
