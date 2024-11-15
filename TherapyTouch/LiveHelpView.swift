@@ -23,7 +23,7 @@ struct LiveHelpView: View {
                                 .resizable()
                                 .frame(width: 75, height: 75)
                                 .padding(.bottom, -20)
-                                .padding(.trailing, 70)
+                                .padding(.trailing, 100)
                             Spacer()
                         }
                     }
@@ -49,7 +49,7 @@ struct LiveHelpView: View {
                         Button(action: {
                             // Button action here
                         }, label: {
-                            Text("Cancel an appointment")
+                            Text("Manage appointments")
                                 .font(.system(size: 22, weight: .bold))
                                 .frame(maxWidth: 150)
                                 .padding(.vertical, 12)
@@ -67,25 +67,10 @@ struct LiveHelpView: View {
                         .font(.system(size: 22))
                         .padding(.leading, 15)
                     VStack {
-                        Button(action: {
-                            // Button action here
-                        }, label: {
-                            ProfileButton(name: "Jane Doe", jobDescription: "Therapist", availability: "Available Now")
-                        })
-                        Button(action: {
-                            // Button action here
-                        }, label: {
-                            ProfileButton(name: "Jane Doe", jobDescription: "Therapist", availability: "Available Now")
-                        })
-                        Button(action: {
-                        }, label: {
-                            ProfileButton(name: "Jane Doe", jobDescription: "Therapist", availability: "Available Now")
-                        })
-                        Button(action: {
-                            // Button action here
-                        }, label: {
-                            ProfileButton(name: "Jane Doe", jobDescription: "Therapist", availability: "Available Now")
-                        })
+                        ProfileButton(name: "Jane Doe", jobDescription: "Therapist", availability: "Available Now")
+                        ProfileButton(name: "Jane Doe", jobDescription: "Therapist", availability: "Available Now")
+                        ProfileButton(name: "Jane Doe", jobDescription: "Therapist", availability: "Available Now")
+                        ProfileButton(name: "Jane Doe", jobDescription: "Therapist", availability: "Available Now")
                     }
                     .frame(maxWidth: .infinity)
                 }

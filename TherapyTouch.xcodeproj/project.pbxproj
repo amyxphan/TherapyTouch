@@ -31,6 +31,8 @@
 		5572B1D42CE2AEC3009589FE /* TherapistNewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1D32CE2AEC3009589FE /* TherapistNewCard.swift */; };
 		5572B1D62CE30973009589FE /* HomeRecentActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1D52CE30973009589FE /* HomeRecentActivity.swift */; };
 		5572B1D82CE56FDA009589FE /* HomeMilestonesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1D72CE56FDA009589FE /* HomeMilestonesCard.swift */; };
+		5572B1DA2CE6E403009589FE /* LiveHelpBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1D92CE6E403009589FE /* LiveHelpBookView.swift */; };
+		5572B1DC2CE6E412009589FE /* LiveHelpManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1DB2CE6E412009589FE /* LiveHelpManageView.swift */; };
 		5584FAD72CA2623500081220 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5584FAD62CA2623500081220 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,8 @@
 		5572B1D32CE2AEC3009589FE /* TherapistNewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapistNewCard.swift; sourceTree = "<group>"; };
 		5572B1D52CE30973009589FE /* HomeRecentActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecentActivity.swift; sourceTree = "<group>"; };
 		5572B1D72CE56FDA009589FE /* HomeMilestonesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMilestonesCard.swift; sourceTree = "<group>"; };
+		5572B1D92CE6E403009589FE /* LiveHelpBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveHelpBookView.swift; sourceTree = "<group>"; };
+		5572B1DB2CE6E412009589FE /* LiveHelpManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveHelpManageView.swift; sourceTree = "<group>"; };
 		5584FAD62CA2623500081220 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +150,8 @@
 				552653352CC1FE78003610B3 /* ProductivityWaterView.swift */,
 				555422DD2CA25B6800E2E9B0 /* FocusView.swift */,
 				555422DF2CA25B7500E2E9B0 /* LiveHelpView.swift */,
+				5572B1D92CE6E403009589FE /* LiveHelpBookView.swift */,
+				5572B1DB2CE6E412009589FE /* LiveHelpManageView.swift */,
 				555422D92CA25AC900E2E9B0 /* HomeView.swift */,
 				5572B1D72CE56FDA009589FE /* HomeMilestonesCard.swift */,
 				5572B1D52CE30973009589FE /* HomeRecentActivity.swift */,
@@ -318,11 +324,13 @@
 				5572B1D02CDF177C009589FE /* QuoteGenerator.swift in Sources */,
 				5572B1D82CE56FDA009589FE /* HomeMilestonesCard.swift in Sources */,
 				5572B1D42CE2AEC3009589FE /* TherapistNewCard.swift in Sources */,
+				5572B1DA2CE6E403009589FE /* LiveHelpBookView.swift in Sources */,
 				555422AF2C9FA42100E2E9B0 /* ContentView.swift in Sources */,
 				5572B1D62CE30973009589FE /* HomeRecentActivity.swift in Sources */,
 				5526533C2CC1FEF6003610B3 /* ProductivitySleepView.swift in Sources */,
 				555422DC2CA25B5B00E2E9B0 /* ProductivityView.swift in Sources */,
 				552653402CC1FF21003610B3 /* ProductivityNoSpendView.swift in Sources */,
+				5572B1DC2CE6E412009589FE /* LiveHelpManageView.swift in Sources */,
 				555422E02CA25B7500E2E9B0 /* LiveHelpView.swift in Sources */,
 				555422AD2C9FA42100E2E9B0 /* TherapyTouchApp.swift in Sources */,
 				552653422CC1FF3B003610B3 /* ProductivitySupplementView.swift in Sources */,
