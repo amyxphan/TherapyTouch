@@ -32,16 +32,14 @@ struct LiveHelpView: View {
                         .padding(.leading, 15)
                     HStack(alignment: .center) {
                         Spacer()
-                        Button(action: {
-                            // Button action here
-                        }, label: {
+                        NavigationLink(destination: LiveHelpBookView()) {
                             Text("Book an appointment")
                                 .font(.system(size: 22, weight: .bold))
                                 .frame(maxWidth: 150)
                                 .padding(.vertical, 12)
                                 .padding(.horizontal)
                                 .foregroundColor(.black)
-                        })
+                        }
                         .background(Color(hex: "#F0DFBE"))
                         .cornerRadius(5)
                         .buttonBorderShape(.roundedRectangle)
