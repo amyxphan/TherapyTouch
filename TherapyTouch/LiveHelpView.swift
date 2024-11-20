@@ -44,16 +44,14 @@ struct LiveHelpView: View {
                         .cornerRadius(5)
                         .buttonBorderShape(.roundedRectangle)
                         
-                        Button(action: {
-                            // Button action here
-                        }, label: {
-                            Text("Manage appointments")
+                        NavigationLink(destination: LiveHelpManageView()) {
+                            Text("Manage Appointments")
                                 .font(.system(size: 22, weight: .bold))
                                 .frame(maxWidth: 150)
                                 .padding(.vertical, 12)
                                 .padding(.horizontal)
                                 .foregroundColor(.black)
-                        })
+                        }
                         .background(Color(hex: "#F0DFBE"))
                         .cornerRadius(5)
                         .buttonBorderShape(.roundedRectangle)
