@@ -44,17 +44,25 @@ struct LiveHelpManageView: View {
                     VStack {
                         Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                             Text("Join")
-                                .font(.system(size: 20, weight: .bold))
+                                .font(.system(size: 18, weight: .bold))
                                 .foregroundColor(.white)
                                 .buttonBorderShape(.roundedRectangle)
                                 .padding(8)
                                 .background(Color(hex: "#B89D6A"))
-                                .frame(maxWidth: 90)
                                 .cornerRadius(5)
                         })
+                        .padding(.top, 10)
                         
+                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                            Text("Cancel")
+                                .font(.system(size: 18, weight: .bold))
+                                .padding(8)
+                                .foregroundColor(Color(hex: "#FF0000"))
+                                .cornerRadius(5)
+                        })
+                        .padding(.bottom, 8)
                     }
-                    .frame(maxHeight: 90)
+                    .frame(maxHeight: 120)
                     .padding(.trailing, 10)
                 }
                 .frame(maxWidth: 375, alignment: .leading)
@@ -88,17 +96,25 @@ struct LiveHelpManageView: View {
                     VStack {
                         Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                             Text("Join")
-                                .font(.system(size: 20, weight: .bold))
+                                .font(.system(size: 18, weight: .bold))
                                 .foregroundColor(.white)
                                 .buttonBorderShape(.roundedRectangle)
                                 .padding(8)
                                 .background(Color(hex: "#B89D6A"))
-                                .frame(maxWidth: 90)
                                 .cornerRadius(5)
                         })
+                        .padding(.top, 10)
                         
+                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                            Text("Cancel")
+                                .font(.system(size: 18, weight: .bold))
+                                .padding(8)
+                                .foregroundColor(Color(hex: "#FF0000"))
+                                .cornerRadius(5)
+                        })
+                        .padding(.bottom, 8)
                     }
-                    .frame(maxHeight: 90)
+                    .frame(maxHeight: 120)
                     .padding(.trailing, 10)
                 }
                 .frame(maxWidth: 375, alignment: .leading)
@@ -132,17 +148,25 @@ struct LiveHelpManageView: View {
                     VStack {
                         Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                             Text("Join")
-                                .font(.system(size: 20, weight: .bold))
+                                .font(.system(size: 18, weight: .bold))
                                 .foregroundColor(.white)
                                 .buttonBorderShape(.roundedRectangle)
                                 .padding(8)
                                 .background(Color(hex: "#B89D6A"))
-                                .frame(maxWidth: 90)
                                 .cornerRadius(5)
                         })
+                        .padding(.top, 10)
                         
+                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                            Text("Cancel")
+                                .font(.system(size: 18, weight: .bold))
+                                .padding(8)
+                                .foregroundColor(Color(hex: "#FF0000"))
+                                .cornerRadius(5)
+                        })
+                        .padding(.bottom, 8)
                     }
-                    .frame(maxHeight: 90)
+                    .frame(maxHeight: 120)
                     .padding(.trailing, 10)
                 }
                 .frame(maxWidth: 375, alignment: .leading)
@@ -150,6 +174,8 @@ struct LiveHelpManageView: View {
                 .cornerRadius(5)
                 .buttonBorderShape(.roundedRectangle)
                 .padding(.bottom, 5)
+                    Spacer()
+                
             }
         }
     }
