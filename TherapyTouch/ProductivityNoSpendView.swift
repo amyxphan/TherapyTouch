@@ -15,11 +15,17 @@ struct ProductivityNoSpendView: View {
                     .font(.system(size: 28, weight: .bold))
                     .padding(.top, 45)
                 Spacer()
-                Text("No Spend Page")
+                Text("Save any money today?")
+                Spacer()
+                Text("Add goal")
                 Spacer()
                 Image("PiggyBank")
                     .resizable()
                     .frame(maxWidth: 275, maxHeight: 225)
+                Text("Total amount saved: XX")
+                Spacer()
+                Text("Restart")
+                Spacer()
             }
         }
     }
