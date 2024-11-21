@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct ProductivitySupplementView: View {
+struct ProductivityStepsView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Supplements")
+                Text("Steps")
                     .font(.system(size: 28, weight: .bold))
                     .padding(.top, 45)
                 Spacer()
-                Text("Supplements Page")
+                Text("Steps Page")
                 Spacer()
             }
         }
@@ -23,6 +23,6 @@ struct ProductivitySupplementView: View {
 }
 
 #Preview {
-    ProductivitySupplementView()
+    ProductivityStepsView()
 }
 

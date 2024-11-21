@@ -102,8 +102,8 @@ struct ProductivityView: View {
                     .buttonBorderShape(.roundedRectangle)
                     .padding(.bottom, 5)
                     
-                    NavigationLink(destination: ProductivitySupplementView()) {
-                        Text("Supplements")
+                    NavigationLink(destination: ProductivityStepsView()) {
+                        Text("Steps")
                             .frame(maxWidth: 325)
                             .padding(.vertical, 18)
                             .padding(.horizontal)
