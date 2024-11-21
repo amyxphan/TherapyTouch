@@ -16,15 +16,28 @@ struct ProductivityNoSpendView: View {
                     .padding(.top, 45)
                 Spacer()
                 Text("Save any money today?")
+                    .font(.system(size: 20))
+                    .padding(.bottom, 10)
                 Spacer()
-                Text("Add goal")
-                Spacer()
+                NavigationLink(destination: ProductivityNoSpendView()) {
+                    Text("Add/Update Goal")
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 10)
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.black)
+                }
+                .background(Color(hex: "#B89D6A"))
+                .cornerRadius(5)
+                .buttonBorderShape(.roundedRectangle)
+                .padding(.bottom, 50)
+                
                 Image("PiggyBank")
                     .resizable()
                     .frame(maxWidth: 275, maxHeight: 225)
+                    .padding(.bottom, 50)
+                
                 Text("Total amount saved: XX")
-                Spacer()
-                Text("Restart")
+                    .font(.system(size: 20, weight: .bold))
                 Spacer()
             }
         }
