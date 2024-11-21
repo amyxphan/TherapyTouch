@@ -17,6 +17,9 @@ struct ProductivityNoSpendView: View {
                 Spacer()
                 Text("No Spend Page")
                 Spacer()
+                Image("PiggyBank")
+                    .resizable()
+                    .frame(maxWidth: 275, maxHeight: 225)
             }
         }
     }
