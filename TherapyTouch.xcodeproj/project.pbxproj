@@ -26,6 +26,13 @@
 		555422DE2CA25B6800E2E9B0 /* FocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422DD2CA25B6800E2E9B0 /* FocusView.swift */; };
 		555422E02CA25B7500E2E9B0 /* LiveHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422DF2CA25B7500E2E9B0 /* LiveHelpView.swift */; };
 		555FBBCC2CD5B55E00F43BF0 /* ProductivityNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555FBBCB2CD5B55E00F43BF0 /* ProductivityNewView.swift */; };
+		5571DC622D23885A00E904D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5571DC612D23885A00E904D3 /* GoogleService-Info.plist */; };
+		5571DC632D23885A00E904D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5571DC612D23885A00E904D3 /* GoogleService-Info.plist */; };
+		5571DC642D23885A00E904D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5571DC612D23885A00E904D3 /* GoogleService-Info.plist */; };
+		5571DC672D238A6800E904D3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5571DC662D238A6800E904D3 /* FirebaseAnalytics */; };
+		5571DC692D238A6800E904D3 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5571DC682D238A6800E904D3 /* FirebaseDatabase */; };
+		5571DC6B2D238A6800E904D3 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 5571DC6A2D238A6800E904D3 /* FirebasePerformance */; };
+		5571DC6D2D238A6800E904D3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5571DC6C2D238A6800E904D3 /* FirebaseStorage */; };
 		5572B1D02CDF177C009589FE /* QuoteGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1CF2CDF177C009589FE /* QuoteGenerator.swift */; };
 		5572B1D22CDF1EBC009589FE /* MilestonesNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1D12CDF1EBC009589FE /* MilestonesNewView.swift */; };
 		5572B1D42CE2AEC3009589FE /* TherapistNewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1D32CE2AEC3009589FE /* TherapistNewCard.swift */; };
@@ -77,6 +84,7 @@
 		555422DD2CA25B6800E2E9B0 /* FocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusView.swift; sourceTree = "<group>"; };
 		555422DF2CA25B7500E2E9B0 /* LiveHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveHelpView.swift; sourceTree = "<group>"; };
 		555FBBCB2CD5B55E00F43BF0 /* ProductivityNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityNewView.swift; sourceTree = "<group>"; };
+		5571DC612D23885A00E904D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5572B1CF2CDF177C009589FE /* QuoteGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteGenerator.swift; sourceTree = "<group>"; };
 		5572B1D12CDF1EBC009589FE /* MilestonesNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestonesNewView.swift; sourceTree = "<group>"; };
 		5572B1D32CE2AEC3009589FE /* TherapistNewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapistNewCard.swift; sourceTree = "<group>"; };
@@ -92,6 +100,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5571DC692D238A6800E904D3 /* FirebaseDatabase in Frameworks */,
+				5571DC6D2D238A6800E904D3 /* FirebaseStorage in Frameworks */,
+				5571DC672D238A6800E904D3 /* FirebaseAnalytics in Frameworks */,
+				5571DC6B2D238A6800E904D3 /* FirebasePerformance in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				555422AC2C9FA42100E2E9B0 /* TherapyTouchApp.swift */,
+				5571DC612D23885A00E904D3 /* GoogleService-Info.plist */,
 				555422AE2C9FA42100E2E9B0 /* ContentView.swift */,
 				5544E7562CEABDC70031AC81 /* ProductivitySleepView.swift */,
 				5572B1CF2CDF177C009589FE /* QuoteGenerator.swift */,
@@ -205,6 +218,12 @@
 			dependencies = (
 			);
 			name = TherapyTouch;
+			packageProductDependencies = (
+				5571DC662D238A6800E904D3 /* FirebaseAnalytics */,
+				5571DC682D238A6800E904D3 /* FirebaseDatabase */,
+				5571DC6A2D238A6800E904D3 /* FirebasePerformance */,
+				5571DC6C2D238A6800E904D3 /* FirebaseStorage */,
+			);
 			productName = TherapyTouch;
 			productReference = 555422A92C9FA42100E2E9B0 /* TherapyTouch.app */;
 			productType = "com.apple.product-type.application";
@@ -277,6 +296,9 @@
 				Base,
 			);
 			mainGroup = 555422A02C9FA42100E2E9B0;
+			packageReferences = (
+				5571DC652D238A6800E904D3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 555422AA2C9FA42100E2E9B0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -294,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5584FAD72CA2623500081220 /* README.md in Resources */,
+				5571DC622D23885A00E904D3 /* GoogleService-Info.plist in Resources */,
 				555422B52C9FA42300E2E9B0 /* Preview Assets.xcassets in Resources */,
 				555422B12C9FA42300E2E9B0 /* Assets.xcassets in Resources */,
 			);
@@ -303,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5571DC632D23885A00E904D3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5571DC642D23885A00E904D3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +714,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5571DC652D238A6800E904D3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5571DC662D238A6800E904D3 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5571DC652D238A6800E904D3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		5571DC682D238A6800E904D3 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5571DC652D238A6800E904D3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		5571DC6A2D238A6800E904D3 /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5571DC652D238A6800E904D3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
+		};
+		5571DC6C2D238A6800E904D3 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5571DC652D238A6800E904D3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 555422A12C9FA42100E2E9B0 /* Project object */;
 }
