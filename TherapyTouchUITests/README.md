@@ -1,6 +1,6 @@
 This project is a mobile app project that I am currently working on to create an all-in-one mental health app that allows users to recieve live help, journal, view their journey, and meditate. In this project, I hope to be able to learn more about mental health issues and create a product that's accessible for users to use and get help.
 
-Currently working on: getting all pages to load up according to Figma design, hand drawing icons to add to UI
+Currently working on: getting all pages to load up according to Figma design, adding in firebase 
 
 Future Advancements: incorperating logins, therapist viewer screens (for Live Help option), research to help those with disabilities use app, and create a user login/account management system
 
