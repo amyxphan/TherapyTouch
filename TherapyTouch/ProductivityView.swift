@@ -31,7 +31,7 @@ struct ProductivityView: View {
                             .foregroundColor(Color(hex: "#B89D6A"))
                     }
                     NavigationLink(destination: ProductivityWaterView()) {
-                        Text("Water")
+                        Text("Hydration")
                             .frame(maxWidth: 325)
                             .padding(.vertical, 18)
                             .padding(.horizontal)

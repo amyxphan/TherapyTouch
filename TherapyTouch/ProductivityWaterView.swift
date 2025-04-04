@@ -14,7 +14,7 @@ struct ProductivityWaterView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Water")
+                Text("Hydration")
                     .font(.system(size: 28, weight: .bold))
                     .padding(.top, 20)
                 
