@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProductivityWorkoutView: View {
+    @State private var days: [Day] = (1...30).map { Day(dayNumber: $0, isSelected: false) }
     var body: some View {
         ScrollView {
             VStack {
@@ -52,10 +53,23 @@ struct ProductivityWorkoutView: View {
                 
                 Text("This month:")
                     .font(.system(size: 22, weight: .bold))
-                    .padding(.top, 40)
+                    .padding(.top, 10)
                 
-                Spacer()
-               
+                VStack {
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 7), spacing: 10) {
+                        ForEach($days) { $day in
+                            Text("\(day.dayNumber)")
+                                .frame(width: 40, height: 40)
+                                .background(day.isSelected ? Color.green : Color.gray.opacity(0.3))
+                                .cornerRadius(5)
+                                .onTapGesture {
+                                    day.isSelected.toggle()
+                                }
+                        }
+                    }
+                    .padding()
+                }
+                .padding(.bottom, 150)
                 //add a monthly tracker here
             }
         }
