@@ -54,18 +54,6 @@ struct ProductivityView: View {
                     .buttonBorderShape(.roundedRectangle)
                     .padding(.bottom, 5)
                     
-                    NavigationLink(destination: ProductivityWeatherView()) {
-                        Text("Weather")
-                            .frame(maxWidth: 325)
-                            .padding(.vertical, 18)
-                            .padding(.horizontal)
-                            .foregroundColor(.black)
-                    }
-                    .background(Color(hex: "#F0DFBE"))
-                    .cornerRadius(5)
-                    .buttonBorderShape(.roundedRectangle)
-                    .padding(.bottom, 5)
-                    
                     NavigationLink(destination: ProductivitySleepView()) {
                         Text("Sleep")
                             .frame(maxWidth: 325)

@@ -35,9 +35,9 @@ struct FocusView: View {
                         .font(.headline)
                     TextField("Minutes", value: $timerMinutes, formatter: NumberFormatter())
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.numberPad)
-                        .frame(width: 100)
-                        .padding(.bottom, 20)
+//                        .keyboardType(.numberPad)
+//                        .frame(width: 100)
+//                        .padding(.bottom, 20)
                 }
                 
                 CircleTimerView(timerDuration: timerMinutes * 60, isRunning: $timerRunning)

@@ -10,7 +10,41 @@ import SwiftUI
 struct ProductivityWaterView: View {
     @State private var currentImageIndex = 5
     private let totalImages = 5
-    @State private var days: [Day] = (1...31).map { Day(dayNumber: $0, isSelected: false) }
+
+    @State private var waterIntake: [Double] = []
+    @State private var selectedMonth: Date = Date()
+
+    private let calendar = Calendar.current
+    private let maxWaterIntake = 128.0 // example max in ounces
+
+    // Generates array of dates for a given month
+    private func generateDaysInMonth(for date: Date) -> [Date] {
+        guard let range = calendar.range(of: .day, in: .month, for: date) else { return [] }
+        let components = calendar.dateComponents([.year, .month], from: date)
+        return range.compactMap { day -> Date? in
+            var newComponents = components
+            newComponents.day = day
+            return calendar.date(from: newComponents)
+        }
+    }
+
+    private func updateWaterIntake(for days: Int) {
+        waterIntake = Array(repeating: 0.0, count: days)
+    }
+
+    private func color(for ounces: Double) -> Color {
+        let clamped = max(min(ounces, maxWaterIntake), 0)
+        let darkness = 0.2 + (clamped / maxWaterIntake) * 0.6
+        return Color.blue.opacity(darkness)
+    }
+
+    private func changeMonth(by value: Int) {
+        if let newDate = calendar.date(byAdding: .month, value: value, to: selectedMonth) {
+            selectedMonth = newDate
+            let days = generateDaysInMonth(for: newDate).count
+            updateWaterIntake(for: days)
+        }
+    }
 
     var body: some View {
         ScrollView {
@@ -18,17 +52,16 @@ struct ProductivityWaterView: View {
                 Text("Hydration")
                     .font(.system(size: 28, weight: .bold))
                     .padding(.top, 20)
-                
+
                 Text("Let's view our progress today:")
                     .font(.system(size: 20))
                     .padding(.top, 10)
-                
+
                 Text("Current Goal: [User Input]")
-                    .padding(.top, 10)
                     .font(.system(size: 20))
                     .foregroundColor(.black)
-                
-                
+                    .padding(.top, 10)
+
                 Image("Water\(currentImageIndex)")
                     .resizable()
                     .frame(width: 150, height: 180)
@@ -40,9 +73,7 @@ struct ProductivityWaterView: View {
                             currentImageIndex = totalImages
                         }
                     }
-                
-                Spacer()
-                
+
                 NavigationLink(destination: ProductivityWaterView()) {
                     Text("Add/Update Goal")
                         .padding(.vertical, 5)
@@ -50,41 +81,69 @@ struct ProductivityWaterView: View {
                         .font(.system(size: 20, weight: .bold))
                         .foregroundColor(.black)
                 }
-
                 .background(Color(hex: "#B89D6A"))
                 .cornerRadius(5)
-                .buttonBorderShape(.roundedRectangle)
-                
+                .padding(.top)
+
                 Text("XX [unit of water intake]")
                     .font(.system(size: 22, weight: .bold))
                     .padding(.top, 10)
-            }
-            
-            Text("This month:")
-                .font(.system(size: 22, weight: .bold))
-                .padding(.top, 5)
-            
-            VStack {
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 7), spacing: 5) {
-                    ForEach($days) { $day in
-                        Text("\(day.dayNumber)")
-                            .frame(width: 40, height: 40)
-                            .background(day.isSelected ? Color.green : Color.gray.opacity(0.3))
-                            .cornerRadius(5)
-                            .onTapGesture {
-                                day.isSelected.toggle()
-                            }
+
+                // Calendar header
+                Text("This month:")
+                    .font(.system(size: 22, weight: .bold))
+                    .padding(.top, 20)
+
+                HStack {
+                    Button(action: { changeMonth(by: -1) }) {
+                        Image(systemName: "chevron.left")
+                    }
+                    Spacer()
+                    Text(monthYearString(from: selectedMonth))
+                        .font(.headline)
+                    Spacer()
+                    Button(action: { changeMonth(by: 1) }) {
+                        Image(systemName: "chevron.right")
                     }
                 }
-                .padding()
+                .padding(.horizontal)
+
+                // Calendar grid
+                let daysInMonth = generateDaysInMonth(for: selectedMonth)
+
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 7), spacing: 10) {
+                    if waterIntake.count == daysInMonth.count {
+                        ForEach(Array(daysInMonth.enumerated()), id: \.0) { index, date in
+                            Rectangle()
+                                .fill(color(for: waterIntake[index]))
+                                .frame(width: 30, height: 30)
+                                .cornerRadius(5)
+                                .onTapGesture {
+                                    waterIntake[index] += 8 // Add 8 oz per tap
+                                }
+                                .overlay(
+                                    Text("\(calendar.component(.day, from: date))")
+                                        .font(.system(size: 8))
+                                        .foregroundColor(.black.opacity(0.7))
+                                )
+                        }
+                    }
+                }
+                .padding(.bottom, 150)
+                .padding(.top, 10)
+                .padding(.horizontal)
             }
-            .padding(.bottom, 150)
-            //add a monthly tracker here
+            .onAppear {
+                let days = generateDaysInMonth(for: selectedMonth).count
+                updateWaterIntake(for: days)
+            }
         }
     }
-}
 
-#Preview {
-    ProductivityWaterView()
+    private func monthYearString(from date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "LLLL yyyy"
+        return formatter.string(from: date)
+    }
 }
 

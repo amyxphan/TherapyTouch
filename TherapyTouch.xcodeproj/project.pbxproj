@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		552653362CC1FE78003610B3 /* ProductivityWaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552653352CC1FE78003610B3 /* ProductivityWaterView.swift */; };
 		552653382CC1FECC003610B3 /* ProductivityMoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552653372CC1FECC003610B3 /* ProductivityMoodView.swift */; };
-		5526533A2CC1FEE3003610B3 /* ProductivityWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552653392CC1FEE3003610B3 /* ProductivityWeatherView.swift */; };
 		5526533E2CC1FF05003610B3 /* ProductivityWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5526533D2CC1FF05003610B3 /* ProductivityWorkoutView.swift */; };
 		552653402CC1FF21003610B3 /* ProductivityNoSpendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5526533F2CC1FF21003610B3 /* ProductivityNoSpendView.swift */; };
 		552653422CC1FF3B003610B3 /* ProductivitySupplementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552653412CC1FF3B003610B3 /* ProductivitySupplementView.swift */; };
@@ -63,7 +62,6 @@
 /* Begin PBXFileReference section */
 		552653352CC1FE78003610B3 /* ProductivityWaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityWaterView.swift; sourceTree = "<group>"; };
 		552653372CC1FECC003610B3 /* ProductivityMoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityMoodView.swift; sourceTree = "<group>"; };
-		552653392CC1FEE3003610B3 /* ProductivityWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityWeatherView.swift; sourceTree = "<group>"; };
 		5526533D2CC1FF05003610B3 /* ProductivityWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityWorkoutView.swift; sourceTree = "<group>"; };
 		5526533F2CC1FF21003610B3 /* ProductivityNoSpendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityNoSpendView.swift; sourceTree = "<group>"; };
 		552653412CC1FF3B003610B3 /* ProductivitySupplementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivitySupplementView.swift; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 				552653412CC1FF3B003610B3 /* ProductivitySupplementView.swift */,
 				5526533F2CC1FF21003610B3 /* ProductivityNoSpendView.swift */,
 				5526533D2CC1FF05003610B3 /* ProductivityWorkoutView.swift */,
-				552653392CC1FEE3003610B3 /* ProductivityWeatherView.swift */,
 				552653372CC1FECC003610B3 /* ProductivityMoodView.swift */,
 				5572B1D32CE2AEC3009589FE /* TherapistNewCard.swift */,
 				552653352CC1FE78003610B3 /* ProductivityWaterView.swift */,
@@ -361,7 +358,6 @@
 				552653382CC1FECC003610B3 /* ProductivityMoodView.swift in Sources */,
 				5572B1D22CDF1EBC009589FE /* MilestonesNewView.swift in Sources */,
 				555FBBCC2CD5B55E00F43BF0 /* ProductivityNewView.swift in Sources */,
-				5526533A2CC1FEE3003610B3 /* ProductivityWeatherView.swift in Sources */,
 				555422DE2CA25B6800E2E9B0 /* FocusView.swift in Sources */,
 				5544E7572CEABDC70031AC81 /* ProductivitySleepView.swift in Sources */,
 				552653362CC1FE78003610B3 /* ProductivityWaterView.swift in Sources */,

@@ -42,8 +42,6 @@ struct CustomSlider: View {
     }
 }
 
-
-
 struct ProductivitySleepView: View {
     @State private var count: Double = 0
     private let sliderRange: ClosedRange<Double> = 0...12
@@ -54,7 +52,7 @@ struct ProductivitySleepView: View {
     private let calendar = Calendar.current
 
     private func generateDaysInMonth(for date: Date) -> [Date] {
-        let range = calendar.range(of: .day, in: .month, for: date)!
+        guard let range = calendar.range(of: .day, in: .month, for: date) else { return [] }
         let components = calendar.dateComponents([.year, .month], from: date)
         return range.compactMap { day -> Date? in
             var newComponents = components
@@ -68,12 +66,14 @@ struct ProductivitySleepView: View {
     }
 
     private func color(for hours: Double) -> Color {
-        // More sleep = darker green. Max at 12 hrs.
-        let maxGreen: Double = 0.9
-        let minGreen: Double = 0.3
         let clamped = max(min(hours, 12), 0)
-        let opacity = minGreen + (clamped / 12.0) * (maxGreen - minGreen)
-        return Color.green.opacity(opacity)
+        let percent = clamped / 12.0
+
+        return Color(
+            red: Double(1 - percent) * 0.8 + Double(percent) * 0.0,
+            green: Double(1 - percent) * 1.0 + Double(percent) * 0.5,
+            blue: Double(1 - percent) * 0.8 + Double(percent) * 0.0
+        )
     }
 
     var body: some View {
@@ -113,7 +113,7 @@ struct ProductivitySleepView: View {
                                 .overlay(
                                     Text("\(calendar.component(.day, from: date))")
                                         .font(.system(size: 8))
-                                        .foregroundColor(.black.opacity(0.7))
+                                        .foregroundStyle(.black.opacity(0.7))
                                 )
                         }
                     }

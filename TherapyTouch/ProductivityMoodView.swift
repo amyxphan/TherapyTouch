@@ -7,82 +7,125 @@
 
 import SwiftUI
 
-struct Day: Identifiable {
-    let id = UUID()
-    let dayNumber: Int
-    var isSelected: Bool
-}
-
 struct ProductivityMoodView: View {
-    @State private var days: [Day] = (1...31).map { Day(dayNumber: $0, isSelected: false) }
+    @State private var selectedMood: Int = 3
+    @State private var moodRatings: [Int] = []
+    @State private var selectedMonth: Date = Date()
+
+    private let calendar = Calendar.current
+
+    private func generateDaysInMonth(for date: Date) -> [Date] {
+        guard let range = calendar.range(of: .day, in: .month, for: date) else { return [] }
+        let components = calendar.dateComponents([.year, .month], from: date)
+        return range.compactMap { day -> Date? in
+            var newComponents = components
+            newComponents.day = day
+            return calendar.date(from: newComponents)
+        }
+    }
+
+    private func updateMoodRatings(for days: Int) {
+        moodRatings = Array(repeating: 0, count: days)
+    }
+
+    private func color(for mood: Int) -> Color {
+        switch mood {
+        case 1: return Color(red: 0.7, green: 1.0, blue: 0.7)   // soft green
+        case 2: return Color(red: 0.85, green: 1.0, blue: 0.85) // light green
+        case 3: return Color(red: 1.0, green: 1.0, blue: 0.7)   // pale yellow
+        case 4: return Color(red: 1.0, green: 0.85, blue: 0.7)  // soft orange
+        case 5: return Color(red: 1.0, green: 0.7, blue: 0.7)   // light red
+        default: return Color.gray.opacity(0.15)               // default
+        }
+    }
+
+    private func changeMonth(by value: Int) {
+        if let newDate = calendar.date(byAdding: .month, value: value, to: selectedMonth) {
+            selectedMonth = newDate
+            let days = generateDaysInMonth(for: newDate).count
+            updateMoodRatings(for: days)
+        }
+    }
+
     var body: some View {
-        VStack {
-            Text("Mood Tracker")
-                .font(.system(size: 28, weight: .bold))
-                .padding(.top, 80)
-            
-            Text("How are you feeling today?")
-                .font(.system(size: 20))
-                .padding(.top, 10)
-            
-            HStack {
-                Image("Mood1")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .onTapGesture {
-                        //update calendar
+        ScrollView {
+            VStack(spacing: 20) {
+                Text("Mood Tracker")
+                    .font(.system(size: 28, weight: .bold))
+                    .padding(.top, 40)
+
+                // Mood Selection with Images
+                VStack(spacing: 10) {
+                    Text("How do you feel today?")
+                        .font(.headline)
+
+                    HStack(spacing: 15) {
+                        ForEach(1...5, id: \.self) { mood in
+                            Image("Mood\(mood)") // e.g., mood1, mood2, ...
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                                .padding(6)
+                                .background(
+                                    Circle()
+                                        .stroke(selectedMood == mood ? Color.blue : Color.clear, lineWidth: 2)
+                                )
+                                .onTapGesture {
+                                    selectedMood = mood
+                                }
+                        }
                     }
-                Image("Mood2")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .onTapGesture {
-                        //update calendar
+                }
+
+                // Calendar Navigation
+                HStack {
+                    Button(action: { changeMonth(by: -1) }) {
+                        Image(systemName: "chevron.left")
                     }
-                Image("Mood3")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .onTapGesture {
-                        //update calendar
+
+                    Text(monthYearString(from: selectedMonth))
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+
+                    Button(action: { changeMonth(by: 1) }) {
+                        Image(systemName: "chevron.right")
                     }
-                Image("Mood4")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .onTapGesture {
-                        //update calendar
-                    }
-                Image("Mood5")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .onTapGesture {
-                        //update calendar
-                    }
-            }
-            .padding(.top, 10)
-            
-            Text("This month:")
-                .font(.system(size: 22, weight: .bold))
-                .padding(.top, 100)
-            
-            VStack {
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 7), spacing: 10) {
-                    ForEach($days) { $day in
-                        Text("\(day.dayNumber)")
-                            .frame(width: 40, height: 40)
-                            .background(day.isSelected ? Color.green : Color.gray.opacity(0.3))
-                            .cornerRadius(5)
-                            .onTapGesture {
-                                day.isSelected.toggle() // Toggle selection state
-                            }
+                }
+                .padding(.horizontal)
+
+                // Calendar Grid
+                let daysInMonth = generateDaysInMonth(for: selectedMonth)
+
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 7), spacing: 10) {
+                    if moodRatings.count == daysInMonth.count {
+                        ForEach(Array(daysInMonth.enumerated()), id: \.0) { index, date in
+                            Rectangle()
+                                .fill(color(for: moodRatings[index]))
+                                .frame(width: 30, height: 30)
+                                .cornerRadius(6)
+                                .onTapGesture {
+                                    moodRatings[index] = selectedMood
+                                }
+                                .overlay(
+                                    Text("\(calendar.component(.day, from: date))")
+                                        .font(.system(size: 8))
+                                        .foregroundColor(.black.opacity(0.7))
+                                )
+                        }
                     }
                 }
                 .padding()
             }
-            .padding(.bottom, 150)
-            //add a monthly tracker here
+            .onAppear {
+                let daysInMonth = generateDaysInMonth(for: selectedMonth).count
+                updateMoodRatings(for: daysInMonth)
+            }
         }
     }
-}
 
-#Preview {
-    ProductivityMoodView()
+    private func monthYearString(from date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "LLLL yyyy"
+        return formatter.string(from: date)
+    }
 }
