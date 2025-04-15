@@ -42,6 +42,7 @@ struct CustomSlider: View {
     }
 }
 
+
 struct ProductivitySleepView: View {
     @State private var count: Double = 0
     private let sliderRange: ClosedRange<Double> = 0...12
@@ -76,14 +77,26 @@ struct ProductivitySleepView: View {
         )
     }
 
+    private func changeMonth(by value: Int) {
+        if let newDate = calendar.date(byAdding: .month, value: value, to: selectedMonth) {
+            selectedMonth = newDate
+            let days = generateDaysInMonth(for: newDate).count
+            updateSleepHours(for: days)
+        }
+    }
+
+    private func monthYearString(from date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "LLLL yyyy"
+        return formatter.string(from: date)
+    }
+
     var body: some View {
         ScrollView {
             VStack {
                 Text("Sleep")
                     .font(.system(size: 28, weight: .bold))
                     .padding(.top, 45)
-
-                Spacer()
 
                 CustomSlider(value: $count, range: sliderRange)
                     .frame(height: 60)
@@ -93,12 +106,32 @@ struct ProductivitySleepView: View {
                     .font(.title)
                     .padding()
 
-                Spacer()
-
+                // Month selector
                 Text("This month:")
                     .font(.system(size: 22, weight: .bold))
-                    .padding(.top, 100)
+                    .padding(.top, 40)
 
+                HStack {
+                    Button(action: { changeMonth(by: -1) }) {
+                        Image(systemName: "chevron.left")
+                            .padding()
+                    }
+
+                    Spacer()
+
+                    Text(monthYearString(from: selectedMonth))
+                        .font(.headline)
+
+                    Spacer()
+
+                    Button(action: { changeMonth(by: 1) }) {
+                        Image(systemName: "chevron.right")
+                            .padding()
+                    }
+                }
+                .padding(.horizontal)
+
+                // Calendar Grid
                 let daysInMonth = generateDaysInMonth(for: selectedMonth)
 
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 7), spacing: 10) {
@@ -107,6 +140,7 @@ struct ProductivitySleepView: View {
                             Rectangle()
                                 .fill(color(for: sleepHours[index]))
                                 .frame(width: 30, height: 30)
+                                .cornerRadius(5)
                                 .onTapGesture {
                                     sleepHours[index] = count
                                 }
@@ -118,11 +152,12 @@ struct ProductivitySleepView: View {
                         }
                     }
                 }
-                .padding()
+                .padding(.bottom, 100)
+                .padding(.horizontal)
             }
             .onAppear {
-                let daysInMonth = generateDaysInMonth(for: selectedMonth).count
-                updateSleepHours(for: daysInMonth)
+                let days = generateDaysInMonth(for: selectedMonth).count
+                updateSleepHours(for: days)
             }
         }
     }

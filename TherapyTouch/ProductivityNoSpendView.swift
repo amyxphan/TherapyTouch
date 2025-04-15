@@ -7,37 +7,47 @@
 
 import SwiftUI
 
-struct MoneyDay: Identifiable {
-    let id = UUID()
-    let dayNumber: Int
-    var didSaveMoney: Bool = false
-    var isSelected: Bool
-}
-
 struct ProductivityNoSpendView: View {
-    @State private var days: [MoneyDay] = (1...30).map {
-        MoneyDay(dayNumber: $0, didSaveMoney: Bool.random(), isSelected: false)
+    @State private var selectedMonth: Date = Date()
+    @State private var saveTracking: [Date: Bool] = [:]
+
+    private let calendar = Calendar.current
+
+    private func generateDaysInMonth(for date: Date) -> [Date] {
+        guard let range = calendar.range(of: .day, in: .month, for: date),
+              let monthStart = calendar.date(from: calendar.dateComponents([.year, .month], from: date)) else {
+            return []
+        }
+
+        return range.compactMap { day -> Date? in
+            calendar.date(byAdding: .day, value: day - 1, to: monthStart)
+        }
     }
-    
-    private var currentDayOfMonth: Int {
-        Calendar.current.component(.day, from: Date())
+
+    private func backgroundColor(for date: Date) -> Color {
+        let saved = saveTracking[date] ?? false
+        let isFuture = date > Date()
+
+        if isFuture {
+            return Color.gray.opacity(0.2)
+        } else if saved {
+            return Color.green.opacity(0.5)
+        } else {
+            return Color.gray.opacity(0.3)
+        }
     }
-    
+
     var body: some View {
         ScrollView {
             VStack {
                 Text("No Spend")
                     .font(.system(size: 28, weight: .bold))
                     .padding(.top, 45)
-                
-                Spacer()
-                
+
                 Text("Save any money today?")
                     .font(.system(size: 20))
                     .padding(.bottom, 10)
-                
-                Spacer()
-                
+
                 NavigationLink(destination: ProductivityNoSpendView()) {
                     Text("Add/Update Goal")
                         .padding(.vertical, 5)
@@ -49,49 +59,68 @@ struct ProductivityNoSpendView: View {
                 .cornerRadius(5)
                 .buttonBorderShape(.roundedRectangle)
                 .padding(.bottom, 10)
-                
+
                 Image("PiggyBank")
                     .resizable()
                     .frame(maxWidth: 250, maxHeight: 200)
                     .padding(.bottom, 10)
-                
+
                 Text("Total amount saved: XX")
                     .font(.system(size: 20, weight: .bold))
-                
+
                 Spacer()
-            }
-            
-            Text("This month:")
-                .font(.system(size: 22, weight: .bold))
-                .padding(.top, 10)
-            
-            VStack {
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 7), spacing: 10) {
-                    ForEach($days) { $day in
-                        Text("\(day.dayNumber)")
+
+                HStack {
+                    Button(action: {
+                        if let previousMonth = calendar.date(byAdding: .month, value: -1, to: selectedMonth) {
+                            selectedMonth = previousMonth
+                        }
+                    }) {
+                        Image(systemName: "chevron.left")
+                    }
+
+                    Text("\(selectedMonth, formatter: monthFormatter)")
+                        .font(.title3.bold())
+                        .padding(.horizontal)
+
+                    Button(action: {
+                        if let nextMonth = calendar.date(byAdding: .month, value: 1, to: selectedMonth) {
+                            selectedMonth = nextMonth
+                        }
+                    }) {
+                        Image(systemName: "chevron.right")
+                    }
+                }
+                .padding(.top, 20)
+
+                Text("This month:")
+                    .font(.system(size: 22, weight: .bold))
+                    .padding(.top, 10)
+
+                let daysInMonth = generateDaysInMonth(for: selectedMonth)
+
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 7), spacing: 10) {
+                    ForEach(daysInMonth, id: \.self) { date in
+                        Text("\(calendar.component(.day, from: date))")
                             .frame(width: 40, height: 40)
-                            .background(backgroundColor(for: day))
+                            .background(backgroundColor(for: date))
                             .cornerRadius(5)
                             .onTapGesture {
-                                if day.dayNumber <= currentDayOfMonth {
-                                    day.didSaveMoney.toggle()
+                                if date <= Date() {
+                                    saveTracking[date]?.toggle()
                                 }
                             }
                     }
                 }
                 .padding()
+                .padding(.bottom, 150)
             }
-            .padding(.bottom, 150)
         }
     }
 
-    func backgroundColor(for day: MoneyDay) -> Color {
-        if day.dayNumber > currentDayOfMonth {
-            return Color.gray.opacity(0.2)
-        } else if day.didSaveMoney {
-            return Color.green
-        } else {
-            return Color.gray.opacity(0.3)
-        }
+    private var monthFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM yyyy"
+        return formatter
     }
 }

@@ -9,33 +9,47 @@ import SwiftUI
 
 struct WorkoutDay: Identifiable {
     let id = UUID()
-    let dayNumber: Int
+    let date: Date
     var didWorkout: Bool = false
-    var isSelected: Bool
 }
 
 struct ProductivityWorkoutView: View {
-    @State private var days: [WorkoutDay] = (1...30).map {
-        WorkoutDay(dayNumber: $0, didWorkout: Bool.random(), isSelected: false)
+    @State private var workoutDays: [Date: Bool] = [:] // Stores workout data for each date
+    @State private var selectedMonth: Date = Date()
+
+    private let calendar = Calendar.current
+
+    // Generates all the days in the selected month
+    private func generateDaysInMonth(for date: Date) -> [Date] {
+        guard let range = calendar.range(of: .day, in: .month, for: date),
+              let monthStart = calendar.date(from: calendar.dateComponents([.year, .month], from: date))
+        else { return [] }
+
+        return range.compactMap { day in
+            calendar.date(byAdding: .day, value: day - 1, to: monthStart)
+        }
     }
-    
-    private var currentDayOfMonth: Int {
-        Calendar.current.component(.day, from: Date())
+
+    // Formats date to "Month Year" string
+    private func monthYearString(from date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM yyyy"
+        return formatter.string(from: date)
     }
-    
+
     var body: some View {
         ScrollView {
             VStack {
                 Text("Workout")
                     .font(.system(size: 28, weight: .bold))
                     .padding(.top, 45)
-                
+
                 Spacer()
-                
+
                 Text("Did you workout today?")
-                
+
                 Spacer()
-                
+
                 NavigationLink(destination: ProductivityWorkoutView()) {
                     Text("Add/Update Goal")
                         .padding(.vertical, 5)
@@ -47,7 +61,7 @@ struct ProductivityWorkoutView: View {
                 .cornerRadius(5)
                 .buttonBorderShape(.roundedRectangle)
                 .padding(.bottom, 50)
-                
+
                 Button(action: {
                     // Phone action here
                 }, label: {
@@ -60,29 +74,65 @@ struct ProductivityWorkoutView: View {
                 })
                 .padding(.bottom, 4)
                 .padding(.leading, 6)
-                
+
                 Text("XX minutes")
-                
+
                 Spacer()
-                
+
                 Text("Current Goal")
-                
-                Spacer()
+                    .font(.system(size: 22, weight: .bold))
+                    .padding(.top, 10)
                 
                 Text("This month:")
                     .font(.system(size: 22, weight: .bold))
                     .padding(.top, 10)
-                
+                    .padding(.bottom, 15)
+
+                Spacer()
+
+                HStack {
+                    Button(action: {
+                        withAnimation {
+                            selectedMonth = calendar.date(byAdding: .month, value: -1, to: selectedMonth) ?? selectedMonth
+                        }
+                    }) {
+                        Image(systemName: "chevron.left")
+                    }
+
+                    Spacer()
+
+                    Text(monthYearString(from: selectedMonth))
+                        .font(.headline)
+
+                    Spacer()
+
+                    Button(action: {
+                        withAnimation {
+                            selectedMonth = calendar.date(byAdding: .month, value: 1, to: selectedMonth) ?? selectedMonth
+                        }
+                    }) {
+                        Image(systemName: "chevron.right")
+                    }
+                }
+                .padding(.horizontal)
+
                 VStack {
+                    let days = generateDaysInMonth(for: selectedMonth)
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 7), spacing: 10) {
-                        ForEach($days) { $day in
-                            Text("\(day.dayNumber)")
+                        ForEach(days, id: \.self) { date in
+                            let day = calendar.component(.day, from: date)
+                            let today = calendar.isDateInToday(date)
+                            let didWorkout = workoutDays[date] ?? false
+
+                            Text("\(day)")
                                 .frame(width: 40, height: 40)
-                                .background(backgroundColor(for: day))
+                                .background(
+                                    date > Date() ? Color.gray.opacity(0.2) : (didWorkout ? Color.green : Color.gray.opacity(0.3))
+                                )
                                 .cornerRadius(5)
                                 .onTapGesture {
-                                    if day.dayNumber <= currentDayOfMonth {
-                                        day.didWorkout.toggle()
+                                    if date <= Date() {
+                                        workoutDays[date] = !(workoutDays[date] ?? false)
                                     }
                                 }
                         }
@@ -93,14 +143,9 @@ struct ProductivityWorkoutView: View {
             }
         }
     }
-    
-    func backgroundColor(for day: WorkoutDay) -> Color {
-        if day.dayNumber > currentDayOfMonth {
-            return Color.gray.opacity(0.2)
-        } else if day.didWorkout {
-            return Color.green
-        } else {
-            return Color.gray.opacity(0.3)
-        }
-    }
 }
+
+#Preview {
+    ProductivityWorkoutView()
+}
+
