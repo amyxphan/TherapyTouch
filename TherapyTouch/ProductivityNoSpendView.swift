@@ -38,18 +38,27 @@ struct ProductivityNoSpendView: View {
     }
 
     var body: some View {
-        ScrollView {
             VStack {
                 Text("No Spend")
                     .font(.system(size: 28, weight: .bold))
-                    .padding(.top, 45)
+                    .padding(.top, 10)
 
                 Text("Save any money today?")
-                    .font(.system(size: 20))
+                    .font(.system(size: 18))
+                    .padding(.top, 5)
+
+
+                Image("PiggyBank")
+                    .resizable()
+                    .frame(maxWidth: 200, maxHeight: 150)
                     .padding(.bottom, 10)
 
-                NavigationLink(destination: ProductivityNoSpendView()) {
-                    Text("Add/Update Goal")
+                Text("Total amount saved: XX")
+                    .font(.system(size: 18, weight: .bold))
+                
+                // edit submit button to update calendar
+                NavigationLink(destination: ProductivityWaterView()) {
+                    Text("Submit")
                         .padding(.vertical, 5)
                         .padding(.horizontal, 10)
                         .font(.system(size: 20, weight: .bold))
@@ -57,18 +66,13 @@ struct ProductivityNoSpendView: View {
                 }
                 .background(Color(hex: "#B89D6A"))
                 .cornerRadius(5)
-                .buttonBorderShape(.roundedRectangle)
-                .padding(.bottom, 10)
-
-                Image("PiggyBank")
-                    .resizable()
-                    .frame(maxWidth: 250, maxHeight: 200)
-                    .padding(.bottom, 10)
-
-                Text("Total amount saved: XX")
-                    .font(.system(size: 20, weight: .bold))
+                .padding(.top)
 
                 Spacer()
+                
+                Text("This month:")
+                    .font(.system(size: 20, weight: .bold))
+                    .padding(.top, 15)
 
                 HStack {
                     Button(action: {
@@ -91,20 +95,16 @@ struct ProductivityNoSpendView: View {
                         Image(systemName: "chevron.right")
                     }
                 }
-                .padding(.top, 20)
-
-                Text("This month:")
-                    .font(.system(size: 22, weight: .bold))
-                    .padding(.top, 10)
+                .padding(.top, 5)
 
                 let daysInMonth = generateDaysInMonth(for: selectedMonth)
 
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 7), spacing: 10) {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 7), spacing: 7) {
                     ForEach(daysInMonth, id: \.self) { date in
                         Text("\(calendar.component(.day, from: date))")
-                            .frame(width: 40, height: 40)
-                            .background(backgroundColor(for: date))
+                            .frame(width: 28, height: 28)
                             .cornerRadius(5)
+                            .background(backgroundColor(for: date))
                             .onTapGesture {
                                 if date <= Date() {
                                     saveTracking[date]?.toggle()
@@ -112,8 +112,9 @@ struct ProductivityNoSpendView: View {
                             }
                     }
                 }
-                .padding()
-                .padding(.bottom, 150)
+                .padding(.bottom, 75)
+                .padding(.top, 5)
+                .padding(.horizontal)
             }
         }
     }
@@ -123,4 +124,3 @@ struct ProductivityNoSpendView: View {
         formatter.dateFormat = "MMMM yyyy"
         return formatter
     }
-}

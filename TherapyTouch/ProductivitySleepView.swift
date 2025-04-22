@@ -92,24 +92,41 @@ struct ProductivitySleepView: View {
     }
 
     var body: some View {
-        ScrollView {
             VStack {
                 Text("Sleep")
                     .font(.system(size: 28, weight: .bold))
-                    .padding(.top, 45)
+                    .padding(.top, 40)
+                
+                Text("How'd you sleep?")
+                    .font(.system(size: 20, weight: .bold))
+                    .padding(.top, 5)
+                    .padding(.bottom, 10)
 
                 CustomSlider(value: $count, range: sliderRange)
                     .frame(height: 60)
                     .padding()
 
                 Text("Hours of Sleep: \(Int(count))")
-                    .font(.title)
-                    .padding()
+                    .font(.system(size: 18, weight: .bold))
+                    .padding(.top, 5)
+                    .padding(.bottom, 10)
+                
+                // edit submit button to update calendar
+                NavigationLink(destination: ProductivityWaterView()) {
+                    Text("Submit")
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 10)
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.black)
+                }
+                .background(Color(hex: "#B89D6A"))
+                .cornerRadius(5)
+                .padding(.top)
 
                 // Month selector
                 Text("This month:")
                     .font(.system(size: 22, weight: .bold))
-                    .padding(.top, 40)
+                    .padding(.top, 30)
 
                 HStack {
                     Button(action: { changeMonth(by: -1) }) {
@@ -139,20 +156,21 @@ struct ProductivitySleepView: View {
                         ForEach(Array(daysInMonth.enumerated()), id: \.0) { index, date in
                             Rectangle()
                                 .fill(color(for: sleepHours[index]))
-                                .frame(width: 30, height: 30)
+                                .frame(width: 28, height: 28)
                                 .cornerRadius(5)
                                 .onTapGesture {
                                     sleepHours[index] = count
                                 }
                                 .overlay(
                                     Text("\(calendar.component(.day, from: date))")
-                                        .font(.system(size: 8))
+                                        .font(.system(size: 12))
                                         .foregroundStyle(.black.opacity(0.7))
                                 )
                         }
                     }
                 }
-                .padding(.bottom, 100)
+                .padding(.bottom, 125)
+                .padding(.top, 5)
                 .padding(.horizontal)
             }
             .onAppear {
@@ -160,5 +178,4 @@ struct ProductivitySleepView: View {
                 updateSleepHours(for: days)
             }
         }
-    }
 }
