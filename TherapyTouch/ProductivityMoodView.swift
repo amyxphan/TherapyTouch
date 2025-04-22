@@ -48,7 +48,6 @@ struct ProductivityMoodView: View {
     }
 
     var body: some View {
-        ScrollView {
             VStack(spacing: 20) {
                 Text("Mood Tracker")
                     .font(.system(size: 28, weight: .bold))
@@ -56,8 +55,10 @@ struct ProductivityMoodView: View {
 
                 // Mood Selection with Images
                 VStack(spacing: 10) {
-                    Text("How do you feel today?")
-                        .font(.headline)
+                    Text("How's are you today?")
+                        .font(.system(size: 20))
+                        .padding(.top, 10)
+                        .padding(.bottom, 10)
 
                     HStack(spacing: 15) {
                         ForEach(1...5, id: \.self) { mood in
@@ -75,7 +76,24 @@ struct ProductivityMoodView: View {
                                 }
                         }
                     }
+                    // edit submit button to update calendar
+                    NavigationLink(destination: ProductivityWaterView()) {
+                        Text("Submit")
+                            .padding(.vertical, 5)
+                            .padding(.horizontal, 10)
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(.black)
+                    }
+                    .background(Color(hex: "#B89D6A"))
+                    .cornerRadius(5)
+                    .padding(.top)
                 }
+                
+                // Calendar header
+                Text("This month:")
+                    .font(.system(size: 20, weight: .bold))
+                    .padding(.top, 20)
+                    .padding(.bottom, 5)
 
                 // Calendar Navigation
                 HStack {
@@ -101,26 +119,27 @@ struct ProductivityMoodView: View {
                         ForEach(Array(daysInMonth.enumerated()), id: \.0) { index, date in
                             Rectangle()
                                 .fill(color(for: moodRatings[index]))
-                                .frame(width: 30, height: 30)
-                                .cornerRadius(6)
+                                .frame(width: 28, height: 28)
+                                .cornerRadius(5)
                                 .onTapGesture {
                                     moodRatings[index] = selectedMood
                                 }
                                 .overlay(
                                     Text("\(calendar.component(.day, from: date))")
-                                        .font(.system(size: 8))
+                                        .font(.system(size: 12))
                                         .foregroundColor(.black.opacity(0.7))
                                 )
                         }
                     }
                 }
-                .padding()
+                .padding(.bottom, 125)
+                .padding(.top, 5)
+                .padding(.horizontal)
             }
             .onAppear {
                 let daysInMonth = generateDaysInMonth(for: selectedMonth).count
                 updateMoodRatings(for: daysInMonth)
             }
-        }
     }
 
     private func monthYearString(from date: Date) -> String {

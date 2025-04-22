@@ -47,24 +47,23 @@ struct ProductivityWaterView: View {
     }
 
     var body: some View {
-        ScrollView {
+            // add edit button on top right to edit goal
             VStack {
                 Text("Hydration")
                     .font(.system(size: 28, weight: .bold))
-                    .padding(.top, 20)
+                    .padding(.top, 100)
 
                 Text("Let's view our progress today:")
                     .font(.system(size: 20))
-                    .padding(.top, 10)
+                    .padding(.top, 3)
 
                 Text("Current Goal: [User Input]")
                     .font(.system(size: 20))
                     .foregroundColor(.black)
-                    .padding(.top, 10)
 
                 Image("Water\(currentImageIndex)")
                     .resizable()
-                    .frame(width: 150, height: 180)
+                    .frame(width: 140, height: 170)
                     .padding(.top, 10)
                     .onTapGesture {
                         if currentImageIndex > 1 {
@@ -73,9 +72,9 @@ struct ProductivityWaterView: View {
                             currentImageIndex = totalImages
                         }
                     }
-
+                // edit submit button to update calendar 
                 NavigationLink(destination: ProductivityWaterView()) {
-                    Text("Add/Update Goal")
+                    Text("Submit")
                         .padding(.vertical, 5)
                         .padding(.horizontal, 10)
                         .font(.system(size: 20, weight: .bold))
@@ -86,13 +85,14 @@ struct ProductivityWaterView: View {
                 .padding(.top)
 
                 Text("XX [unit of water intake]")
-                    .font(.system(size: 22, weight: .bold))
-                    .padding(.top, 10)
+                    .font(.system(size: 20, weight: .bold))
+                    .padding(.top, 5)
 
                 // Calendar header
                 Text("This month:")
-                    .font(.system(size: 22, weight: .bold))
-                    .padding(.top, 20)
+                    .font(.system(size: 20, weight: .bold))
+                    .padding(.top, 5)
+                    .padding(.bottom, 5)
 
                 HStack {
                     Button(action: { changeMonth(by: -1) }) {
@@ -111,26 +111,26 @@ struct ProductivityWaterView: View {
                 // Calendar grid
                 let daysInMonth = generateDaysInMonth(for: selectedMonth)
 
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 7), spacing: 10) {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 7), spacing: 7) {
                     if waterIntake.count == daysInMonth.count {
                         ForEach(Array(daysInMonth.enumerated()), id: \.0) { index, date in
                             Rectangle()
                                 .fill(color(for: waterIntake[index]))
-                                .frame(width: 30, height: 30)
+                                .frame(width: 28, height: 28)
                                 .cornerRadius(5)
                                 .onTapGesture {
                                     waterIntake[index] += 8 // Add 8 oz per tap
                                 }
                                 .overlay(
                                     Text("\(calendar.component(.day, from: date))")
-                                        .font(.system(size: 8))
+                                        .font(.system(size: 12))
                                         .foregroundColor(.black.opacity(0.7))
                                 )
                         }
                     }
                 }
-                .padding(.bottom, 150)
-                .padding(.top, 10)
+                .padding(.bottom, 125)
+                .padding(.top, 5)
                 .padding(.horizontal)
             }
             .onAppear {
@@ -138,7 +138,6 @@ struct ProductivityWaterView: View {
                 updateWaterIntake(for: days)
             }
         }
-    }
 
     private func monthYearString(from date: Date) -> String {
         let formatter = DateFormatter()
