@@ -11,7 +11,6 @@
 		552653382CC1FECC003610B3 /* ProductivityMoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552653372CC1FECC003610B3 /* ProductivityMoodView.swift */; };
 		5526533E2CC1FF05003610B3 /* ProductivityWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5526533D2CC1FF05003610B3 /* ProductivityWorkoutView.swift */; };
 		552653402CC1FF21003610B3 /* ProductivityNoSpendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5526533F2CC1FF21003610B3 /* ProductivityNoSpendView.swift */; };
-		552653422CC1FF3B003610B3 /* ProductivitySupplementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552653412CC1FF3B003610B3 /* ProductivitySupplementView.swift */; };
 		5544E7572CEABDC70031AC81 /* ProductivitySleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544E7562CEABDC70031AC81 /* ProductivitySleepView.swift */; };
 		555422AD2C9FA42100E2E9B0 /* TherapyTouchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422AC2C9FA42100E2E9B0 /* TherapyTouchApp.swift */; };
 		555422AF2C9FA42100E2E9B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555422AE2C9FA42100E2E9B0 /* ContentView.swift */; };
@@ -39,6 +38,7 @@
 		5572B1D82CE56FDA009589FE /* HomeMilestonesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1D72CE56FDA009589FE /* HomeMilestonesCard.swift */; };
 		5572B1DA2CE6E403009589FE /* LiveHelpBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1D92CE6E403009589FE /* LiveHelpBookView.swift */; };
 		5572B1DC2CE6E412009589FE /* LiveHelpManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572B1DB2CE6E412009589FE /* LiveHelpManageView.swift */; };
+		5577F6012DC061ED00178918 /* ProductivityStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577F6002DC061ED00178918 /* ProductivityStepView.swift */; };
 		5584FAD72CA2623500081220 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5584FAD62CA2623500081220 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +64,6 @@
 		552653372CC1FECC003610B3 /* ProductivityMoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityMoodView.swift; sourceTree = "<group>"; };
 		5526533D2CC1FF05003610B3 /* ProductivityWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityWorkoutView.swift; sourceTree = "<group>"; };
 		5526533F2CC1FF21003610B3 /* ProductivityNoSpendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityNoSpendView.swift; sourceTree = "<group>"; };
-		552653412CC1FF3B003610B3 /* ProductivitySupplementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivitySupplementView.swift; sourceTree = "<group>"; };
 		5544E7562CEABDC70031AC81 /* ProductivitySleepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivitySleepView.swift; sourceTree = "<group>"; };
 		555422A92C9FA42100E2E9B0 /* TherapyTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TherapyTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555422AC2C9FA42100E2E9B0 /* TherapyTouchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapyTouchApp.swift; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 		5572B1D72CE56FDA009589FE /* HomeMilestonesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMilestonesCard.swift; sourceTree = "<group>"; };
 		5572B1D92CE6E403009589FE /* LiveHelpBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveHelpBookView.swift; sourceTree = "<group>"; };
 		5572B1DB2CE6E412009589FE /* LiveHelpManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveHelpManageView.swift; sourceTree = "<group>"; };
+		5577F6002DC061ED00178918 /* ProductivityStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityStepView.swift; sourceTree = "<group>"; };
 		5584FAD62CA2623500081220 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,10 +152,10 @@
 				555422DB2CA25B5A00E2E9B0 /* ProductivityView.swift */,
 				555FBBCB2CD5B55E00F43BF0 /* ProductivityNewView.swift */,
 				5544E7562CEABDC70031AC81 /* ProductivitySleepView.swift */,
-				552653412CC1FF3B003610B3 /* ProductivitySupplementView.swift */,
 				5526533F2CC1FF21003610B3 /* ProductivityNoSpendView.swift */,
 				552653372CC1FECC003610B3 /* ProductivityMoodView.swift */,
 				5526533D2CC1FF05003610B3 /* ProductivityWorkoutView.swift */,
+				5577F6002DC061ED00178918 /* ProductivityStepView.swift */,
 				552653352CC1FE78003610B3 /* ProductivityWaterView.swift */,
 				5572B1D32CE2AEC3009589FE /* TherapistNewCard.swift */,
 				555422DD2CA25B6800E2E9B0 /* FocusView.swift */,
@@ -352,9 +352,9 @@
 				555422DC2CA25B5B00E2E9B0 /* ProductivityView.swift in Sources */,
 				552653402CC1FF21003610B3 /* ProductivityNoSpendView.swift in Sources */,
 				5572B1DC2CE6E412009589FE /* LiveHelpManageView.swift in Sources */,
+				5577F6012DC061ED00178918 /* ProductivityStepView.swift in Sources */,
 				555422E02CA25B7500E2E9B0 /* LiveHelpView.swift in Sources */,
 				555422AD2C9FA42100E2E9B0 /* TherapyTouchApp.swift in Sources */,
-				552653422CC1FF3B003610B3 /* ProductivitySupplementView.swift in Sources */,
 				552653382CC1FECC003610B3 /* ProductivityMoodView.swift in Sources */,
 				5572B1D22CDF1EBC009589FE /* MilestonesNewView.swift in Sources */,
 				555FBBCC2CD5B55E00F43BF0 /* ProductivityNewView.swift in Sources */,

@@ -90,7 +90,7 @@ struct ProductivityView: View {
                     .buttonBorderShape(.roundedRectangle)
                     .padding(.bottom, 5)
                     
-                    NavigationLink(destination: ProductivityStepsView()) {
+                    NavigationLink(destination: ProductivityStepView()) {
                         Text("Steps")
                             .frame(maxWidth: 325)
                             .padding(.vertical, 18)

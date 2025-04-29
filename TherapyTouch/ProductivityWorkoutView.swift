@@ -47,20 +47,14 @@ struct ProductivityWorkoutView: View {
                 Spacer()
 
                 Text("Did you workout today?")
+                    .font(.system(size: 20, weight: .bold))
+                    .padding(.top, 5)
 
+                Text("Current Goal: [XX]")
+                    .font(.system(size: 18, weight: .bold))
+                    .padding(.top, 5)
+                
                 Spacer()
-
-                NavigationLink(destination: ProductivityWorkoutView()) {
-                    Text("Add/Update Goal")
-                        .padding(.vertical, 5)
-                        .padding(.horizontal, 10)
-                        .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.black)
-                }
-                .background(Color(hex: "#B89D6A"))
-                .cornerRadius(5)
-                .buttonBorderShape(.roundedRectangle)
-                .padding(.bottom, 50)
 
                 Button(action: {
                     // Phone action here
@@ -74,14 +68,23 @@ struct ProductivityWorkoutView: View {
                 })
                 .padding(.bottom, 4)
                 .padding(.leading, 6)
-
-                Text("XX minutes")
-
+                
                 Spacer()
 
-                Text("Current Goal")
-                    .font(.system(size: 22, weight: .bold))
-                    .padding(.top, 10)
+                Text("XX minutes")
+                
+                NavigationLink(destination: ProductivityWorkoutView()) {
+                    Text("Submit")
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 10)
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.black)
+                }
+                .background(Color(hex: "#B89D6A"))
+                .cornerRadius(5)
+                .buttonBorderShape(.roundedRectangle)
+                .padding(.bottom, 50)
+
                 
                 Text("This month:")
                     .font(.system(size: 22, weight: .bold))
