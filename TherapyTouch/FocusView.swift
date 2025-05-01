@@ -7,44 +7,66 @@
 import SwiftUI
 
 struct FocusView: View {
-    @State private var timerMinutes: Double = 1 // Default timer duration in minutes
-    @State private var timerRunning = false // State for running or stopping the timer
+    @State private var timerDuration: Double = 1500 // Default to 25 min focus
+    @State private var timerRunning = false
+    @State private var selectedPreset: String = "25/5"
 
     var body: some View {
         ScrollView {
             VStack {
                 ZStack(alignment: .bottomTrailing) {
-                        Text("Focus")
-                            .font(.system(size: 28, weight: .bold))
-                            .padding(.top, 20)
-                            .padding()
-                        
-                        Image("TTLogo1")
-                            .resizable()
-                            .frame(width: 75, height: 75)
-                            .padding(.bottom, -20)
-                            .padding(.trailing, -40)
+                    Text("Focus")
+                        .font(.system(size: 28, weight: .bold))
+                        .padding(.top, 20)
+                        .padding()
+
+                    Image("TTLogo1")
+                        .resizable()
+                        .frame(width: 75, height: 75)
+                        .padding(.bottom, -20)
+                        .padding(.trailing, -40)
                 }
-                
-                
+
                 Spacer()
-                
-                // Duration Input
-                VStack {
-                    Text("Make switch button here")
-                        .font(.headline)
-                    TextField("Minutes", value: $timerMinutes, formatter: NumberFormatter())
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-//                        .keyboardType(.numberPad)
-//                        .frame(width: 100)
-//                        .padding(.bottom, 20)
+
+                Text("Pomodoro Timer!")
+                    .font(.system(size: 20))
+                    .padding(.bottom, 10)
+                    .padding(.top, 25)
+
+                HStack(spacing: 20) {
+                    Button(action: {
+                        timerDuration = 50 * 60 // 50 minutes
+                        selectedPreset = "50/10"
+                        timerRunning = false
+                    }) {
+                        Text("50/10")
+                            .padding()
+                            .frame(width: 100)
+                            .background(selectedPreset == "50/10" ? Color.blue : Color.gray.opacity(0.3))
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+
+                    Button(action: {
+                        timerDuration = 25 * 60 // 25 minutes
+                        selectedPreset = "25/5"
+                        timerRunning = false
+                    }) {
+                        Text("25/5")
+                            .padding()
+                            .frame(width: 100)
+                            .background(selectedPreset == "25/5" ? Color.blue : Color.gray.opacity(0.3))
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
                 }
-                
-                CircleTimerView(timerDuration: timerMinutes * 60, isRunning: $timerRunning)
-                
-                // Start/Stop Button
+                .padding(.bottom, 20)
+
+                CircleTimerView(timerDuration: timerDuration, isRunning: $timerRunning)
+
                 Button(action: {
-                    timerRunning.toggle() // Start or stop the timer
+                    timerRunning.toggle()
                 }) {
                     Text(timerRunning ? "Stop" : "Start")
                         .font(.title2)
@@ -55,7 +77,7 @@ struct FocusView: View {
                         .cornerRadius(10)
                         .padding()
                 }
-                
+
                 Spacer()
             }
             .padding()
