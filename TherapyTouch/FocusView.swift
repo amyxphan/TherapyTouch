@@ -5,11 +5,15 @@
 //  Created by Amy Phan on 9/23/24.
 //
 import SwiftUI
+import AVFoundation
+import UserNotifications
 
 struct FocusView: View {
-    @State private var timerDuration: Double = 1500 // Default to 25 min focus
+    @State private var timerDuration: Double = 1500 // Default 25 min
     @State private var timerRunning = false
     @State private var selectedPreset: String = "25/5"
+    @State private var isFocusPhase = true
+    @State private var showAlert = false
 
     var body: some View {
         ScrollView {
@@ -36,8 +40,9 @@ struct FocusView: View {
 
                 HStack(spacing: 20) {
                     Button(action: {
-                        timerDuration = 50 * 60 // 50 minutes
+                        timerDuration = 50 * 60
                         selectedPreset = "50/10"
+                        isFocusPhase = true
                         timerRunning = false
                     }) {
                         Text("50/10")
@@ -49,8 +54,9 @@ struct FocusView: View {
                     }
 
                     Button(action: {
-                        timerDuration = 25 * 60 // 25 minutes
+                        timerDuration = 25 * 60
                         selectedPreset = "25/5"
+                        isFocusPhase = true
                         timerRunning = false
                     }) {
                         Text("25/5")
@@ -63,7 +69,14 @@ struct FocusView: View {
                 }
                 .padding(.bottom, 20)
 
-                CircleTimerView(timerDuration: timerDuration, isRunning: $timerRunning)
+                let duration = timerDuration
+
+                CircleTimerView(
+                    timerDuration: duration,
+                    isRunning: $timerRunning,
+                    isFocusPhase: $isFocusPhase,
+                    showAlert: $showAlert
+                )
 
                 Button(action: {
                     timerRunning.toggle()
@@ -81,7 +94,23 @@ struct FocusView: View {
                 Spacer()
             }
             .padding()
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Time's up!"),
+                      message: Text(isFocusPhase ? "Take a break!" : "Time to focus!"),
+                      dismissButton: .default(Text("OK")))
+            }
         }
+        .onAppear {
+            requestNotificationPermission()
+        }
+    }
+
+    func requestNotificationPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { _, _ in }
+    }
+
+    func playSound() {
+        AudioServicesPlaySystemSound(SystemSoundID(1005)) // Tri-tone
     }
 }
 
@@ -91,6 +120,8 @@ struct CircleTimerView: View {
     @State private var currentTime: Double = 0
     let timerDuration: Double
     @Binding var isRunning: Bool
+    @Binding var isFocusPhase: Bool
+    @Binding var showAlert: Bool
 
     var body: some View {
         ZStack {
@@ -98,18 +129,24 @@ struct CircleTimerView: View {
                 .stroke(lineWidth: 20)
                 .opacity(0.3)
                 .foregroundColor(.gray)
-            
+
             Circle()
                 .trim(from: 0.0, to: timerProgress)
                 .stroke(isHalfway ? Color.red : Color.blue, lineWidth: 20)
                 .rotationEffect(.degrees(-90))
                 .animation(.linear(duration: timerDuration), value: timerProgress)
-            
-            Text(formatTime(currentTime))
-                .font(.largeTitle)
-                .bold()
+
+            VStack {
+                Text(formatTime(currentTime))
+                    .font(.largeTitle)
+                    .bold()
+
+                Text(isFocusPhase ? "Time to focus!" : "Break time")
+                    .font(.headline)
+                    .foregroundColor(.secondary)
+            }
         }
-        .frame(width: 200, height: 200)
+        .frame(width: 220, height: 220)
         .padding(40)
         .onAppear {
             currentTime = timerDuration
@@ -127,23 +164,47 @@ struct CircleTimerView: View {
         timerProgress = 0.0
         isHalfway = false
         currentTime = timerDuration
+
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             if isRunning {
                 if currentTime > 0 {
                     currentTime -= 0.1
                     timerProgress = CGFloat(1 - currentTime / timerDuration)
-                    
+
                     if timerProgress >= 0.5 {
                         isHalfway = true
                     }
                 } else {
                     timer.invalidate()
                     isRunning = false
+                    showAlert = true
+                    AudioServicesPlaySystemSound(SystemSoundID(1005)) // play sound
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        switchPhase()
+                    }
                 }
             } else {
                 timer.invalidate()
             }
         }
+    }
+
+    func switchPhase() {
+        isFocusPhase.toggle()
+
+        let is50_10 = selectedPreset == "50/10"
+        var nextDuration: Double
+
+        if isFocusPhase {
+            nextDuration = is50_10 ? 50 * 60 : 25 * 60
+        } else {
+            nextDuration = is50_10 ? 10 * 60 : 5 * 60
+        }
+
+        currentTime = nextDuration
+        isRunning = true
+        startTimer()
     }
 
     func resetTimer() {
@@ -156,6 +217,10 @@ struct CircleTimerView: View {
         let minutes = Int(seconds) / 60
         let seconds = Int(seconds) % 60
         return String(format: "%02d:%02d", minutes, seconds)
+    }
+
+    private var selectedPreset: String {
+        return isFocusPhase ? "focus" : "break"
     }
 }
 
