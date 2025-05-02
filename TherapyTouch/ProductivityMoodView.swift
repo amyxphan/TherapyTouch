@@ -148,3 +148,7 @@ struct ProductivityMoodView: View {
         return formatter.string(from: date)
     }
 }
+
+#Preview {
+    ProductivityMoodView()
+}

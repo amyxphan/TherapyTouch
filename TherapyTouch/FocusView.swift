@@ -40,7 +40,7 @@ struct FocusView: View {
                 Text("Pomodoro Timer!")
                     .font(.system(size: 20))
                     .padding(.bottom, 10)
-                    .padding(.top, 25)
+                    .padding(.top, 5)
 
                 HStack(spacing: 20) {
                     Button(action: {
@@ -91,6 +91,7 @@ struct FocusView: View {
                         .background(timerRunning ? Color.red : Color.green)
                         .foregroundColor(.white)
                         .cornerRadius(10)
+                        .padding(.top, 20)
                 }
                 
                 Button(action: {
@@ -213,7 +214,7 @@ struct CircleTimerView: View {
             }
         }
         .frame(width: 250, height: 250)
-        .padding(40)
+        .padding(10)
     }
 }
 

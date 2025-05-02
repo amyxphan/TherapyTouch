@@ -124,3 +124,7 @@ struct ProductivityNoSpendView: View {
         formatter.dateFormat = "MMMM yyyy"
         return formatter
     }
+
+#Preview {
+    ProductivityNoSpendView()
+}

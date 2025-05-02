@@ -143,3 +143,7 @@ struct ProductivityStepView: View {
         return Color.green.opacity(0.3 + 0.7 * percentage)
     }
 }
+
+#Preview {
+    ProductivityStepView()
+}

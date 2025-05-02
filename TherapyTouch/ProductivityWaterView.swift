@@ -146,3 +146,6 @@ struct ProductivityWaterView: View {
     }
 }
 
+#Preview {
+    ProductivityWaterView()
+}

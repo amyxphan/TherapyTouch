@@ -179,3 +179,8 @@ struct ProductivitySleepView: View {
             }
         }
 }
+
+#Preview {
+    ProductivitySleepView()
+}
+
