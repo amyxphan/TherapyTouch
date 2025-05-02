@@ -67,13 +67,18 @@ struct ProductivitySleepView: View {
     }
 
     private func color(for hours: Double) -> Color {
+        // If no sleep recorded (0), return light gray
+        if hours == 0 {
+            return Color.gray.opacity(0.3)
+        }
+
         let clamped = max(min(hours, 12), 0)
         let percent = clamped / 12.0
 
         return Color(
-            red: Double(1 - percent) * 0.8 + Double(percent) * 0.0,
-            green: Double(1 - percent) * 1.0 + Double(percent) * 0.5,
-            blue: Double(1 - percent) * 0.8 + Double(percent) * 0.0
+            red: Double(1 - percent) * 0.0 + Double(percent) * 0.0,
+            green: Double(1 - percent) * 0.8 + Double(percent) * 0.5,
+            blue: Double(1 - percent) * 0.0 + Double(percent) * 0.0
         )
     }
 
@@ -82,6 +87,7 @@ struct ProductivitySleepView: View {
             selectedMonth = newDate
             let days = generateDaysInMonth(for: newDate).count
             updateSleepHours(for: days)
+            loadSleepHours()
         }
     }
 
@@ -90,97 +96,115 @@ struct ProductivitySleepView: View {
         formatter.dateFormat = "LLLL yyyy"
         return formatter.string(from: date)
     }
+    
+    // Save the sleep hours to UserDefaults
+    private func saveSleepHours() {
+        let key = monthYearString(from: selectedMonth)
+        let encodedData = try? JSONEncoder().encode(sleepHours)
+        UserDefaults.standard.set(encodedData, forKey: key)
+    }
+    
+    // Load the sleep hours from UserDefaults
+    private func loadSleepHours() {
+        let key = monthYearString(from: selectedMonth)
+        if let savedData = UserDefaults.standard.data(forKey: key),
+           let decodedSleepHours = try? JSONDecoder().decode([Double].self, from: savedData) {
+            sleepHours = decodedSleepHours
+        } else {
+            let days = generateDaysInMonth(for: selectedMonth).count
+            updateSleepHours(for: days)
+        }
+    }
 
     var body: some View {
-            VStack {
-                Text("Sleep")
-                    .font(.system(size: 28, weight: .bold))
-                    .padding(.top, 40)
-                
-                Text("How'd you sleep?")
-                    .font(.system(size: 20, weight: .bold))
-                    .padding(.top, 5)
-                    .padding(.bottom, 10)
+        VStack {
+            Text("Sleep")
+                .font(.system(size: 28, weight: .bold))
+                .padding(.top, 40)
 
-                CustomSlider(value: $count, range: sliderRange)
-                    .frame(height: 60)
-                    .padding()
-
-                Text("Hours of Sleep: \(Int(count))")
-                    .font(.system(size: 18, weight: .bold))
-                    .padding(.top, 5)
-                    .padding(.bottom, 10)
-                
-                // edit submit button to update calendar
-                NavigationLink(destination: ProductivityWaterView()) {
-                    Text("Submit")
-                        .padding(.vertical, 5)
-                        .padding(.horizontal, 10)
-                        .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.black)
-                }
-                .background(Color(hex: "#B89D6A"))
-                .cornerRadius(5)
-                .padding(.top)
-
-                // Month selector
-                Text("This month:")
-                    .font(.system(size: 22, weight: .bold))
-                    .padding(.top, 30)
-
-                HStack {
-                    Button(action: { changeMonth(by: -1) }) {
-                        Image(systemName: "chevron.left")
-                            .padding()
-                    }
-
-                    Spacer()
-
-                    Text(monthYearString(from: selectedMonth))
-                        .font(.headline)
-
-                    Spacer()
-
-                    Button(action: { changeMonth(by: 1) }) {
-                        Image(systemName: "chevron.right")
-                            .padding()
-                    }
-                }
-                .padding(.horizontal)
-
-                // Calendar Grid
-                let daysInMonth = generateDaysInMonth(for: selectedMonth)
-
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 7), spacing: 10) {
-                    if sleepHours.count == daysInMonth.count {
-                        ForEach(Array(daysInMonth.enumerated()), id: \.0) { index, date in
-                            Rectangle()
-                                .fill(color(for: sleepHours[index]))
-                                .frame(width: 28, height: 28)
-                                .cornerRadius(5)
-                                .onTapGesture {
-                                    sleepHours[index] = count
-                                }
-                                .overlay(
-                                    Text("\(calendar.component(.day, from: date))")
-                                        .font(.system(size: 12))
-                                        .foregroundStyle(.black.opacity(0.7))
-                                )
-                        }
-                    }
-                }
-                .padding(.bottom, 125)
+            Text("How'd you sleep?")
+                .font(.system(size: 20, weight: .bold))
                 .padding(.top, 5)
-                .padding(.horizontal)
+                .padding(.bottom, 10)
+
+            CustomSlider(value: $count, range: sliderRange)
+                .frame(height: 60)
+                .padding()
+
+            Text("Hours of Sleep: \(Int(count))")
+                .font(.system(size: 18, weight: .bold))
+                .padding(.top, 5)
+                .padding(.bottom, 10)
+
+            // Submit button that saves the response
+            Button(action: {
+                let dayIndex = calendar.component(.day, from: selectedMonth)
+                sleepHours[dayIndex - 1] = count
+                saveSleepHours()
+            }) {
+                Text("Submit")
+                    .padding(.vertical, 5)
+                    .padding(.horizontal, 10)
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(.black)
             }
-            .onAppear {
-                let days = generateDaysInMonth(for: selectedMonth).count
-                updateSleepHours(for: days)
+            .background(Color(hex: "#B89D6A"))
+            .cornerRadius(5)
+            .padding(.top)
+
+            // Month selector
+            Text("This month:")
+                .font(.system(size: 22, weight: .bold))
+                .padding(.top, 30)
+
+            HStack {
+                Button(action: { changeMonth(by: -1) }) {
+                    Image(systemName: "chevron.left")
+                        .padding()
+                }
+
+                Spacer()
+
+                Text(monthYearString(from: selectedMonth))
+                    .font(.headline)
+
+                Spacer()
+
+                Button(action: { changeMonth(by: 1) }) {
+                    Image(systemName: "chevron.right")
+                        .padding()
+                }
             }
+            .padding(.horizontal)
+
+            // Calendar Grid
+            let daysInMonth = generateDaysInMonth(for: selectedMonth)
+
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 7), spacing: 10) {
+                if sleepHours.count == daysInMonth.count {
+                    ForEach(Array(daysInMonth.enumerated()), id: \.0) { index, date in
+                        Rectangle()
+                            .fill(color(for: sleepHours[index]))  // Apply light gray if 0 sleep
+                            .frame(width: 28, height: 28)
+                            .cornerRadius(5)
+                            .overlay(
+                                Text("\(calendar.component(.day, from: date))")
+                                    .font(.system(size: 12))
+                                    .foregroundStyle(.black.opacity(0.7))
+                            )
+                    }
+                }
+            }
+            .padding(.bottom, 125)
+            .padding(.top, 5)
+            .padding(.horizontal)
         }
+        .onAppear {
+            loadSleepHours()
+        }
+    }
 }
 
 #Preview {
     ProductivitySleepView()
 }
-
