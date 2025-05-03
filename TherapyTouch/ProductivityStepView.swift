@@ -17,9 +17,11 @@ struct StepDay: Identifiable {
 struct ProductivityStepView: View {
     @State private var stepDays: [Date: StepDay] = [:]
     @State private var selectedMonth: Date = Date()
+    @State private var inputSteps: String = ""  // This stores the user input as a String
+    @State private var totalStepsToday: Int = 0
     
     private let calendar = Calendar.current
-    
+
     private func generateDaysInMonth(for date: Date) -> [Date] {
         guard let range = calendar.range(of: .day, in: .month, for: date),
               let startOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: date)) else {
@@ -43,6 +45,7 @@ struct ProductivityStepView: View {
                 Text("Steps")
                     .font(.system(size: 28, weight: .bold))
                     .padding(.top, 10)
+                    .padding(.bottom, 20)
                 
                 Text("Did you reach your step goal?")
                     .font(.system(size: 20))
@@ -53,23 +56,35 @@ struct ProductivityStepView: View {
                     .frame(maxWidth: 110, maxHeight: 130)
                     .padding(.bottom, 10)
                 
-                NavigationLink(destination: ProductivityStepView()) {
-                    Text("Submit")
-                        .padding(.vertical, 5)
-                        .padding(.horizontal, 10)
-                        .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.black)
+                TextField("Enter steps", text: $inputSteps)
+                    .padding(8)
+                    .border(Color(.lightGray))
+                    .cornerRadius(5)
+                
+                Button("Submit") {
+                    guard let steps = Int(inputSteps), steps >= 0 else { return }
+                    
+                    let today = calendar.startOfDay(for: Date())
+                    var day = stepDays[today] ?? StepDay(date: today)
+                    day.stepsWalked += steps
+                    stepDays[today] = day
+                    totalStepsToday = day.stepsWalked
+                    
+                    // Reset the input field
+                    inputSteps = ""
                 }
+                .padding(.vertical, 5)
+                .padding(.horizontal, 10)
+                .font(.system(size: 20, weight: .bold))
+                .foregroundColor(.black)
                 .background(Color(hex: "#B89D6A"))
                 .cornerRadius(5)
                 .buttonBorderShape(.roundedRectangle)
-                .padding(.bottom, 10)
+                .padding(.top)
                 
-                Text("Current Count: XX")
-                    .font(.system(size: 18, weight: .bold))
-                
-                Text("Current Goal: XX")
-                    .font(.system(size: 18, weight: .bold))
+                Text("Total steps logged today: \(totalStepsToday) steps")
+                    .font(.system(size: 18))
+                    .padding(.top, 2)
                 
                 Spacer()
                 
@@ -111,7 +126,7 @@ struct ProductivityStepView: View {
                         let day = calendar.component(.day, from: date)
                         let isFuture = date > Date()
                         
-                        let dayData = stepDays[date] ?? StepDay(date: date, stepsWalked: Int.random(in: 0...10000))
+                        let dayData = stepDays[date] ?? StepDay(date: date, stepsWalked: 0)
                         let steps = dayData.stepsWalked
                         let bgColor = isFuture
                         ? Color.gray.opacity(0.2)

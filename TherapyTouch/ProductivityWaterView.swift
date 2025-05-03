@@ -11,7 +11,9 @@ struct ProductivityWaterView: View {
     @State private var currentImageIndex = 5
     private let totalImages = 5
 
+    @AppStorage("waterIntakeData") private var waterIntakeData: Data = Data()
     @State private var waterIntake: [Double] = []
+
     @State private var selectedMonth: Date = Date()
     @State private var currentOunces = 0.0
     @State private var todaysWaterIntake = 0.0
@@ -30,7 +32,9 @@ struct ProductivityWaterView: View {
     }
 
     private func updateWaterIntake(for days: Int) {
-        waterIntake = Array(repeating: 0.0, count: days)
+        if waterIntake.count != days {
+            waterIntake = Array(repeating: 0.0, count: days)
+        }
     }
 
     private func color(for ounces: Double) -> Color {
@@ -44,6 +48,23 @@ struct ProductivityWaterView: View {
             selectedMonth = newDate
             let days = generateDaysInMonth(for: newDate).count
             updateWaterIntake(for: days)
+        }
+    }
+
+    private func loadData() {
+        let decoder = JSONDecoder()
+        if let decoded = try? decoder.decode([Double].self, from: waterIntakeData) {
+            waterIntake = decoded
+        } else {
+            let days = generateDaysInMonth(for: selectedMonth).count
+            waterIntake = Array(repeating: 0.0, count: days)
+        }
+    }
+
+    private func saveData() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(waterIntake) {
+            waterIntakeData = encoded
         }
     }
 
@@ -83,6 +104,7 @@ struct ProductivityWaterView: View {
                     todaysWaterIntake += currentOunces
                     currentOunces = 0
                     currentImageIndex = totalImages
+                    saveData()
                 }
             }) {
                 Text("Submit")
@@ -146,6 +168,7 @@ struct ProductivityWaterView: View {
         .onAppear {
             let days = generateDaysInMonth(for: selectedMonth).count
             updateWaterIntake(for: days)
+            loadData()
         }
     }
 

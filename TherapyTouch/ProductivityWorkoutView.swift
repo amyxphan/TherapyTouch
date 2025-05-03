@@ -47,11 +47,7 @@ struct ProductivityWorkoutView: View {
                 Spacer()
 
                 Text("Did you workout today?")
-                    .font(.system(size: 20, weight: .bold))
-                    .padding(.top, 5)
-
-                Text("Current Goal: [XX]")
-                    .font(.system(size: 18, weight: .bold))
+                    .font(.system(size: 20))
                     .padding(.top, 5)
                 
                 Spacer()
@@ -121,7 +117,7 @@ struct ProductivityWorkoutView: View {
 
                 VStack {
                     let days = generateDaysInMonth(for: selectedMonth)
-                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 7), spacing: 10) {
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 7), spacing: 5) {
                         ForEach(days, id: \.self) { date in
                             let day = calendar.component(.day, from: date)
                             let today = calendar.isDateInToday(date)
