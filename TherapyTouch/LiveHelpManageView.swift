@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LiveHelpManageView: View {
     var therapist: String = "Jane Doe"
-    var description: String = "Job Description"
+    var description: String = "Appointment at 8:00AM"
 
     var body: some View {
         ScrollView {
