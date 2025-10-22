@@ -1,14 +1,18 @@
 import SwiftUI
 
 struct ProfileButton: View {
-    // Properties for dynamic content if needed
     var name: String = "Jane Doe"
     var jobDescription: String = "Job Description"
     var availability: String = "Available Now"
+    
+    // Alert states
+    @State private var showMessageAlert = false
+    @State private var showPhoneAlert = false
+    @State private var showVideoAlert = false
 
     var body: some View {
         Button(action: {
-            // Main button action here
+            // Main button action if needed
         }, label: {
             VStack(alignment: .leading) {
                 Text(name)
@@ -28,9 +32,8 @@ struct ProfileButton: View {
                     .foregroundColor(.black)
                 
                 HStack {
-                    Button(action: {
-                        // Message action here
-                    }, label: {
+                    // Message button
+                    Button(action: { showMessageAlert = true }, label: {
                         Image(systemName: "message")
                             .font(.system(size: 25))
                             .foregroundColor(.white)
@@ -40,10 +43,17 @@ struct ProfileButton: View {
                     })
                     .padding(.bottom, 4)
                     .padding(.leading, 6)
+                    .alert("Open Messages?", isPresented: $showMessageAlert) {
+                        Button("Cancel", role: .cancel) {}
+                        Button("Proceed") {
+                            // Add Messages app action if desired
+                        }
+                    } message: {
+                        Text("You will switch to the Messages app to communicate with \(name).")
+                    }
                     
-                    Button(action: {
-                        // Phone action here
-                    }, label: {
+                    // Phone button
+                    Button(action: { showPhoneAlert = true }, label: {
                         Image(systemName: "phone")
                             .font(.system(size: 25))
                             .foregroundColor(.white)
@@ -53,10 +63,19 @@ struct ProfileButton: View {
                     })
                     .padding(.bottom, 4)
                     .padding(.leading, 6)
+                    .alert("Open Phone?", isPresented: $showPhoneAlert) {
+                        Button("Cancel", role: .cancel) {}
+                        Button("Proceed") {
+                            if let url = URL(string: "tel://1234567890") {
+                                UIApplication.shared.open(url)
+                            }
+                        }
+                    } message: {
+                        Text("You will switch to the Phone app to call \(name).")
+                    }
                     
-                    Button(action: {
-                        // Video action here
-                    }, label: {
+                    // Video button
+                    Button(action: { showVideoAlert = true }, label: {
                         Image(systemName: "video")
                             .font(.system(size: 25))
                             .foregroundColor(.white)
@@ -66,8 +85,19 @@ struct ProfileButton: View {
                     })
                     .padding(.bottom, 4)
                     .padding(.leading, 4)
+                    .alert("Open FaceTime?", isPresented: $showVideoAlert) {
+                        Button("Cancel", role: .cancel) {}
+                        Button("Proceed") {
+                            if let url = URL(string: "facetime://1234567890") {
+                                UIApplication.shared.open(url)
+                            }
+                        }
+                    } message: {
+                        Text("You will switch to FaceTime to call \(name).")
+                    }
                 }
             }
+            
             Image(systemName: "person")
                 .font(.system(size: 75))
                 .foregroundColor(.black)
@@ -90,4 +120,3 @@ struct ProfileButton_Previews: PreviewProvider {
         ProfileButton()
     }
 }
-
