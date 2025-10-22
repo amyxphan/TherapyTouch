@@ -8,10 +8,6 @@
 import SwiftUI
 
 struct ProductivityView: View {
-    @State private var goals: [CustomGoal] = []
-    @State private var showAddGoalModal = false
-    @State private var newGoalName = ""
-
     var body: some View {
         NavigationView {
             ScrollView {
