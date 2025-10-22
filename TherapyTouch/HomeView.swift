@@ -4,32 +4,44 @@
 //
 //  Created by Amy Phan on 9/23/24.
 //
+
 import SwiftUI
 
 struct HomeView: View {
     @State private var currentQuote = QuoteGenerator().getRandomQuote()
     
+    // State for goals
+    @State private var milestones: [Goal] = [
+        Goal(title: "Sobriety", startDate: Date().addingTimeInterval(-86400 * 100)) // example milestone
+    ]
+    
+    // State for showing the sheet
+    @State private var showAddGoalSheet = false
+
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .center, spacing: 5) {
+                    
+                    // Header
                     ZStack(alignment: .bottomTrailing) {
-                            Text("Hello! [NAME]")
-                                .font(.system(size: 28, weight: .bold))
-                                .padding(.top, 10)
-                                .padding()
-                            
-                            Image("TTLogo1")
-                                .resizable()
-                                .frame(width: 75, height: 75)
-                                .padding(.bottom, -20)
-                                .padding(.trailing, -35)
+                        Text("Hello! [NAME]")
+                            .font(.system(size: 28, weight: .bold))
+                            .padding(.top, 10)
+                            .padding()
+                        
+                        Image("TTLogo1")
+                            .resizable()
+                            .frame(width: 75, height: 75)
+                            .padding(.bottom, -20)
+                            .padding(.trailing, -35)
                     }
-                
+                    
                     Text("Here's a summary of your journey:")
                         .font(.system(size: 20, weight: .bold))
                         .padding(.bottom, 8)
-                    //future: need to add functionality to let user customize how many times quote should update
+                    
+                    // Quote of the Day
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Quote of the day:")
                             .font(.system(size: 18))
@@ -56,6 +68,7 @@ struct HomeView: View {
                         .buttonStyle(PlainButtonStyle())
                     }
                     
+                    // Recent Activity
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Recent Activity:")
                             .font(.system(size: 18))
@@ -74,23 +87,49 @@ struct HomeView: View {
                             Text("Milestones:")
                                 .font(.system(size: 18))
                             
-                            Spacer() // Pushes the "+" button to the right
-
-                            NavigationLink(destination: MilestonesNewView()) {
+                            Spacer()
+                            
+                            // "+" Button for Add Goal Sheet
+                            Button(action: {
+                                showAddGoalSheet = true
+                            }) {
                                 Text("+")
                                     .font(.system(size: 22, weight: .bold))
                                     .foregroundColor(Color(hex: "#B89D6A"))
                             }
                         }
                         
-                        HomeMilestonesCard(category: "Sobriety", data: "100 days")
-                            .frame(height: 90)
+                        // Show all milestones dynamically
+                        ForEach(milestones) { milestone in
+                            let days = daysSince(startDate: milestone.startDate)
+                            HomeMilestonesCard(category: milestone.title, data: "\(days) days")
+                                .frame(height: 90)
+                        }
                     }
                 }
                 .padding(.horizontal)
             }
+            .sheet(isPresented: $showAddGoalSheet) {
+                    MilestonesNewView(milestones: $milestones)
+            }
         }
     }
+}
+
+// Helper function to calculate number of days since start date
+func daysSince(startDate: Date) -> Int {
+    let calendar = Calendar.current
+    let start = calendar.startOfDay(for: startDate)
+    let now = calendar.startOfDay(for: Date())
+    let components = calendar.dateComponents([.day], from: start, to: now)
+    return components.day ?? 0
+}
+
+// Goal model
+struct Goal: Identifiable {
+    let id = UUID()
+    let title: String
+    let startDate: Date
 }
 
 #Preview {
