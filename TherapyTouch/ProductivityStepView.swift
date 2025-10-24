@@ -61,7 +61,8 @@ struct ProductivityStepView: View {
                     .border(Color(.lightGray))
                     .cornerRadius(5)
                 
-                Button("Submit") {
+                // 🟤 UPDATED SUBMIT BUTTON
+                Button(action: {
                     guard let steps = Int(inputSteps), steps >= 0 else { return }
                     
                     let today = calendar.startOfDay(for: Date())
@@ -72,11 +73,18 @@ struct ProductivityStepView: View {
                     
                     // Reset the input field
                     inputSteps = ""
+                    
+                    // 🕒 Save timestamp and value for latest steps submission
+                    let timestamp = Date()
+                    UserDefaults.standard.set(timestamp, forKey: "lastStepsSubmissionTime")
+                    UserDefaults.standard.set(totalStepsToday, forKey: "lastStepsSubmissionValue")
+                }) {
+                    Text("Submit")
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 10)
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.black)
                 }
-                .padding(.vertical, 5)
-                .padding(.horizontal, 10)
-                .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.black)
                 .background(Color(hex: "#B89D6A"))
                 .cornerRadius(5)
                 .buttonBorderShape(.roundedRectangle)
@@ -162,3 +170,4 @@ struct ProductivityStepView: View {
 #Preview {
     ProductivityStepView()
 }
+

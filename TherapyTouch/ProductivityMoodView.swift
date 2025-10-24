@@ -103,6 +103,9 @@ struct ProductivityMoodView: View {
                         moodRatings[dayIndex] = selectedMood
                         saveMoodRatings()
                     }
+                    let timestamp = Date()
+                    UserDefaults.standard.set(timestamp, forKey: "lastMoodSubmissionTime")
+                    UserDefaults.standard.set(selectedMood, forKey: "lastMoodSubmissionValue")
                 } label: {
                     Text("Submit")
                         .padding(.vertical, 5)

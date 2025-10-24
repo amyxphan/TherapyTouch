@@ -141,6 +141,11 @@ struct ProductivitySleepView: View {
                 let dayIndex = calendar.component(.day, from: selectedMonth)
                 sleepHours[dayIndex - 1] = count
                 saveSleepHours()
+
+                // 🕒 Save timestamp and value for latest sleep submission
+                let timestamp = Date()
+                UserDefaults.standard.set(timestamp, forKey: "lastSleepSubmissionTime")
+                UserDefaults.standard.set(count, forKey: "lastSleepSubmissionValue")
             }) {
                 Text("Submit")
                     .padding(.vertical, 5)
@@ -151,6 +156,7 @@ struct ProductivitySleepView: View {
             .background(Color(hex: "#B89D6A"))
             .cornerRadius(5)
             .padding(.top)
+
 
             // Month selector
             Text("This month:")

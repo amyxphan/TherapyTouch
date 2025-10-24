@@ -106,6 +106,10 @@ struct ProductivityWaterView: View {
                     currentImageIndex = totalImages
                     saveData()
                 }
+                
+                let timestamp = Date()
+                UserDefaults.standard.set(timestamp, forKey: "lastWaterSubmissionTime")
+                UserDefaults.standard.set(waterIntake, forKey: "lastWaterSubmissionValue")
             }) {
                 Text("Submit")
                     .padding(.vertical, 5)

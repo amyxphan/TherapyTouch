@@ -113,18 +113,24 @@ struct ProductivityNoSpendView: View {
 
             Button(action: {
                 let today = calendar.startOfDay(for: Date())
-                saveTracking[today, default: 0] += todaySavings
+                    saveTracking[today, default: 0] += todaySavings
+                    todaySavings = 0
+                    saveNoSpend()
+                    
+                let timestamp = Date()
+                UserDefaults.standard.set(timestamp, forKey: "lastNoSpendSubmissionTime")
+                UserDefaults.standard.set(saveTracking[today], forKey: "lastNoSpendSubmissionValue") // save actual value
                 todaySavings = 0
-                saveNoSpend()
             }) {
                 Text("Submit")
                     .padding(.vertical, 5)
                     .padding(.horizontal, 10)
                     .font(.system(size: 20, weight: .bold))
                     .foregroundColor(.black)
-                    .background(Color(hex: "#B89D6A"))
-                    .cornerRadius(5)
             }
+            .background(Color(hex: "#B89D6A"))
+            .cornerRadius(5)
+            .padding(.top)
 
             Text("This month:")
                 .font(.system(size: 20, weight: .bold))

@@ -122,18 +122,21 @@ struct ProductivityWorkoutView: View {
                 Button(action: {
                     let today = calendar.startOfDay(for: Date())
                     workoutTracking[today, default: 0] += todayMinutes
-                    todayMinutes = 0
                     saveWorkout()
+
+                    let timestamp = Date()
+                    UserDefaults.standard.set(timestamp, forKey: "lastWorkoutSubmissionTime")
+                    UserDefaults.standard.set(todayMinutes, forKey: "lastWorkoutSubmissionValue")
                 }) {
                     Text("Submit")
                         .padding(.vertical, 5)
                         .padding(.horizontal, 10)
                         .font(.system(size: 20, weight: .bold))
                         .foregroundColor(.black)
-                        .background(Color(hex: "#B89D6A"))
-                        .cornerRadius(5)
                 }
-                .padding(.bottom, 15)
+                .background(Color(hex: "#B89D6A"))
+                .cornerRadius(5)
+                .padding(.top)
 
                 Text("This month:")
                     .font(.system(size: 20, weight: .bold))
