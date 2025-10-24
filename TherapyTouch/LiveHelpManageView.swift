@@ -8,140 +8,107 @@
 import SwiftUI
 
 struct LiveHelpManageView: View {
-    var therapist: String = "Jane Doe"
-    var description: String = "Appointment at 8:00AM"
-    
-    // Controls visibility for each section
-    @State private var showToday = true
-    @State private var showTomorrow = true
-    @State private var showNextWeek = true
+    @State private var appointments: [[String: String]] = []
+
+    // Load confirmed appointments
+    private func loadAppointments() {
+        appointments = UserDefaults.standard.array(forKey: "confirmedAppointments") as? [[String: String]] ?? []
+    }
 
     var body: some View {
         ScrollView {
-            Text("View my appointments")
-                .font(.system(size: 28, weight: .bold))
-                .padding(.top, 45)
-                .padding(.bottom, 40)
-            
-            VStack(alignment: .leading, spacing: 15) {
-                if showToday {
-                    AppointmentSection(
-                        title: "Today:",
-                        therapist: therapist,
-                        description: description,
-                        onCancel: { showToday = false }
-                    )
-                }
-                
-                if showTomorrow {
-                    AppointmentSection(
-                        title: "Tomorrow:",
-                        therapist: therapist,
-                        description: description,
-                        onCancel: { showTomorrow = false }
-                    )
-                }
-                
-                if showNextWeek {
-                    AppointmentSection(
-                        title: "Next Week:",
-                        therapist: therapist,
-                        description: description,
-                        onCancel: { showNextWeek = false }
-                    )
+            VStack(alignment: .center) {
+                Text("View My Appointments")
+                    .font(.system(size: 28, weight: .bold))
+                    .padding(.top, 45)
+                    .padding(.bottom, 40)
+
+                if appointments.isEmpty {
+                    Text("No upcoming appointments yet.")
+                        .font(.system(size: 18))
+                        .foregroundColor(.gray)
+                        .padding()
+                } else {
+                    Text("Upcoming Appointments:")
+                        .font(.system(size: 20, weight: .bold))
+                        .padding(.leading)
+                        .padding(.bottom, 10)
+
+                    VStack(alignment: .leading, spacing: 15) {
+                        ForEach(appointments.indices, id: \.self) { index in
+                            let item = appointments[index]
+                            AppointmentSection(
+                                therapist: item["therapist"] ?? "Therapist",
+                                description: item["description"] ?? "Appointment"
+                            ) {
+                                appointments.remove(at: index)
+                                UserDefaults.standard.set(appointments, forKey: "confirmedAppointments")
+                            }
+                        }
+                    }
+                    .padding(.horizontal)
                 }
             }
-            .padding(.horizontal)
         }
+        .onAppear(perform: loadAppointments)
     }
 }
 
-// MARK: - Reusable Appointment Section
 struct AppointmentSection: View {
-    var title: String
     var therapist: String
     var description: String
     var onCancel: () -> Void
-    
+
     @State private var showCallAlert = false
-    
-    // Toggle this to switch between behavior
-    private let useConfirmationPopup = true
-    private let phoneNumber = "1234567890" // Replace with your therapist's phone number
+    private let phoneNumber = "1234567890"
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(title)
-                .font(.system(size: 18))
-                .padding(.leading, 5)
-            
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(therapist)
-                        .font(.system(size: 20, weight: .bold))
-                        .padding(.leading, 8)
-                        .padding(.bottom, 2)
-                        .foregroundColor(.black)
-                    Text(description)
-                        .font(.system(size: 18))
-                        .padding(.leading, 8)
-                        .padding(.bottom, 2)
-                        .foregroundColor(.black)
-                }
-                
-                Spacer()
-                
-                VStack {
-                    // JOIN BUTTON
-                    Button(action: {
-                        if useConfirmationPopup {
-                            // Show alert first
-                            showCallAlert = true
-                        } else {
-                            // Directly open phone app
-                            if let phoneURL = URL(string: "tel://\(phoneNumber)") {
-                                UIApplication.shared.open(phoneURL)
-                            }
-                        }
-                    }, label: {
-                        Text("Join")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(.white)
-                            .padding(8)
-                            .background(Color(hex: "#B89D6A"))
-                            .cornerRadius(5)
-                    })
-                    .padding(.top, 10)
-                    // Show confirmation popup if enabled
-                    .alert("Call your therapist?", isPresented: $showCallAlert) {
-                        Button("Cancel", role: .cancel) {}
-                        Button("Call") {
-                            if let phoneURL = URL(string: "tel://\(phoneNumber)") {
-                                UIApplication.shared.open(phoneURL)
-                            }
-                        }
-                    } message: {
-                        Text("Would you like to open your phone app to call your therapist?")
-                    }
-                    
-                    // CANCEL BUTTON
-                    Button(action: onCancel, label: {
-                        Text("Cancel")
-                            .font(.system(size: 18, weight: .bold))
-                            .padding(8)
-                            .foregroundColor(Color(hex: "#FF0000"))
-                            .cornerRadius(5)
-                    })
-                    .padding(.bottom, 8)
-                }
-                .frame(maxHeight: 120)
-                .padding(.trailing, 10)
+        HStack(alignment: .center) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text(therapist)
+                    .font(.system(size: 20, weight: .bold))
+                    .padding(.leading, 8)
+                Text(description)
+                    .font(.system(size: 18))
+                    .padding(.leading, 8)
             }
-            .frame(maxWidth: 375, alignment: .leading)
-            .background(Color(hex: "#F0DFBE"))
-            .cornerRadius(5)
-            .padding(.bottom, 5)
+
+            Spacer()
+
+            VStack(spacing: 10) { // ensures even gap between Join and Cancel
+                Button("Join") {
+                    showCallAlert = true
+                }
+                .font(.system(size: 18, weight: .bold))
+                .foregroundColor(.white)
+                .padding(.vertical, 8)
+                .padding(.horizontal, 16)
+                .background(Color(hex: "#B89D6A"))
+                .cornerRadius(5)
+                .alert("Call your therapist?", isPresented: $showCallAlert) {
+                    Button("Cancel", role: .cancel) {}
+                    Button("Call") {
+                        if let phoneURL = URL(string: "tel://\(phoneNumber)") {
+                            UIApplication.shared.open(phoneURL)
+                        }
+                    }
+                } message: {
+                    Text("Would you like to open your phone app to call your therapist?")
+                }
+
+                Button("Cancel", action: onCancel)
+                    .font(.system(size: 18, weight: .bold))
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 16)
+                    .foregroundColor(Color(hex: "#FF0000"))
+                    .cornerRadius(5)
+            }
+            .padding(.trailing, 10)
         }
+        .frame(maxWidth: 375)
+        .padding(.vertical, 10)
+        .background(Color(hex: "#F0DFBE"))
+        .cornerRadius(5)
     }
 }
 
