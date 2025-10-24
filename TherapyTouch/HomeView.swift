@@ -9,14 +9,11 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var currentQuote = QuoteGenerator().getRandomQuote()
-    
-    // State for goals
     @State private var milestones: [Goal] = [
-        Goal(title: "Sobriety", startDate: Date().addingTimeInterval(-86400 * 100)) // example milestone
+        Goal(title: "Sobriety", startDate: Date().addingTimeInterval(-86400 * 100))
     ]
-    
-    // State for showing the sheet
     @State private var showAddGoalSheet = false
+    @State private var recentActivities: [Activity] = []
 
     var body: some View {
         NavigationView {
@@ -25,7 +22,7 @@ struct HomeView: View {
                     
                     // Header
                     ZStack(alignment: .bottomTrailing) {
-                        Text("Hello! [NAME]")
+                        Text("Hello Amy")
                             .font(.system(size: 28, weight: .bold))
                             .padding(.top, 10)
                             .padding()
@@ -72,12 +69,15 @@ struct HomeView: View {
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Recent Activity:")
                             .font(.system(size: 18))
-                        HomeRecentActivity(category: "Weather", submition: 12, data: "Cloudy")
+                        
+                        ForEach(recentActivities) { activity in
+                            HomeRecentActivity(
+                                category: activity.category,
+                                data: activity.data,
+                                submissionTime: activity.submissionTime
+                            )
                             .frame(height: 90)
-                        HomeRecentActivity(category: "Water", submition: 10, data: "16 oz")
-                            .frame(height: 90)
-                        HomeRecentActivity(category: "Sleep", submition: 8, data: "8 hours")
-                            .frame(height: 90)
+                        }
                     }
                     .padding(.bottom, 8)
                     
@@ -89,17 +89,13 @@ struct HomeView: View {
                             
                             Spacer()
                             
-                            // "+" Button for Add Goal Sheet
-                            Button(action: {
-                                showAddGoalSheet = true
-                            }) {
+                            Button(action: { showAddGoalSheet = true }) {
                                 Text("+")
                                     .font(.system(size: 22, weight: .bold))
                                     .foregroundColor(Color(hex: "#B89D6A"))
                             }
                         }
                         
-                        // Show all milestones dynamically
                         ForEach(milestones) { milestone in
                             let days = daysSince(startDate: milestone.startDate)
                             HomeMilestonesCard(category: milestone.title, data: "\(days) days")
@@ -110,13 +106,16 @@ struct HomeView: View {
                 .padding(.horizontal)
             }
             .sheet(isPresented: $showAddGoalSheet) {
-                    MilestonesNewView(milestones: $milestones)
+                MilestonesNewView(milestones: $milestones)
+            }
+            .onAppear {
+                recentActivities = [Activity].loadRecentActivities()
             }
         }
     }
 }
 
-// Helper function to calculate number of days since start date
+// Helper function to calculate days since a date
 func daysSince(startDate: Date) -> Int {
     let calendar = Calendar.current
     let start = calendar.startOfDay(for: startDate)
